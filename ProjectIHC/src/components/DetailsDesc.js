@@ -64,7 +64,6 @@ const DetailsDesc = ({ data }) => {
             }}
           >
             {text}
-            {!readMore && "..."}
             <Text
               style={{
                 color: COLORS.primary,

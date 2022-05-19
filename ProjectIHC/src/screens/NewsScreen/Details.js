@@ -32,7 +32,12 @@ const DetailsHeader = ({ data, navigation }) => (
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
 
-  const [text, setText] = useState(data.description.slice(0, 100));
+  function shorten(text,max) {
+    return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join(' ') : text
+  }
+
+
+  const [text, setText] = useState(shorten(data.description, 160) + "...");
   const [readMore, setReadMore] = useState(false);
   const [buttonText, setButtonText] = useState('Read more');
 
@@ -42,7 +47,7 @@ const Details = ({ route, navigation }) => {
       setReadMore(true);
       setButtonText(' Read less')
     } else {
-      setText(data.description.slice(0, 100));
+      setText(shorten(data.description, 160) + "...");
       setReadMore(false);
       setButtonText('Read more')
   }
@@ -136,7 +141,6 @@ const Details = ({ route, navigation }) => {
                   }}
                   onPress={descHandler}
                 >
-                {buttonText}
                 </Text>
               </Text>
             </View>
