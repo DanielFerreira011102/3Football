@@ -17,6 +17,15 @@ import person04 from "../../assets/images/person04.png";
 
 import user1 from "../../assets/images/user.png";
 
+import benfica from "../../assets/images/benfica.png";
+import sporting from "../../assets/images/sporting.png";
+import porto from "../../assets/images/porto.png";
+import cristiano_ronaldo from "../../assets/images/cristiano_ronaldo.jpg";
+import lionel_messi from "../../assets/images/lionel_messi.png";
+import bernardo_silva from "../../assets/images/bernardo_silva.jpg";
+import josep_guardiola from "../../assets/images/josep_guardiola.png";
+import premier_league from "../../assets/images/premier_league.png";
+
 export default {
   heart,
   left,
@@ -36,4 +45,14 @@ export default {
   person04,
 
   user1,
+
+  benfica,
+  sporting,
+  porto,
+  cristiano_ronaldo,
+  lionel_messi,
+  bernardo_silva,
+  josep_guardiola,
+  premier_league,
+
 };

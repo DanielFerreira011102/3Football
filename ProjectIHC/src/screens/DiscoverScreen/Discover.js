@@ -3,12 +3,11 @@ import { View, SafeAreaView, FlatList} from "react-native";
 import { NEWSCard, HomeHeader, FocusedStatusBar } from "../../components";
 import { COLORS, NEWSData } from "../../constants";
 
-
 const Discover = ( { route } ) => {
   const { user } = route.params;
-
   const [newsData, setNewsData] = useState(NEWSData);
 
+  /*
   const handleSearch = (value) => {
     if (value.length === 0) {
       setNewsData(NEWSData);
@@ -24,6 +23,7 @@ const Discover = ( { route } ) => {
       setNewsData(filteredData);
     }
   };
+*/
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -35,7 +35,7 @@ const Discover = ( { route } ) => {
             renderItem={({ item }) => <NEWSCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<HomeHeader onSearch={handleSearch} username={user.username} userimg={user.img} />}
+            ListHeaderComponent={<HomeHeader username={user.username} userimg={user.img} />}
           />
         </View>
 

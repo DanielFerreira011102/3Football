@@ -28,28 +28,6 @@ export const NEWSTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
   );
 };
 
-const ImageCmp = ({ imgUrl, index }) => {
-  return (
-    <Image
-      source={imgUrl}
-      resizeMode="contain"
-      style={{
-        width: 48,
-        height: 48,
-        marginLeft: index === 0 ? 0 : -SIZES.font,
-      }}
-    />
-  );
-};
-
-export const People = ({profile}) => {
-  return (
-    <View style={{ flexDirection: "row", marginLeft: 20 }}>
-      <ImageCmp imgUrl={profile} />
-    </View>
-  );
-};
-
 export const EndDate = ( { date } ) => {
 
   function processTime(interval, extension) {
@@ -117,6 +95,29 @@ export const EndDate = ( { date } ) => {
       > 
         {`${timeSince(date)}`} ago
       </Text>
+    </View>
+  );
+};
+
+const ImageCmp = ({ imgUrl, index }) => {
+  return (
+    <Image
+      source={imgUrl}
+      resizeMode="contain"
+      style={{
+        width: 48,
+        height: 48,
+        marginLeft: index === 0 ? 0 : -SIZES.font,
+      }}
+    />
+  );
+};
+
+export const People = ({profile, type}) => {
+  return (
+    <View style={{ flexDirection: "column", marginLeft: 20 }}>
+      <ImageCmp imgUrl={profile} />
+      <Text>{type}</Text>
     </View>
   );
 };

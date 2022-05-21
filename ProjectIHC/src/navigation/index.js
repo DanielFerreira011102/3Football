@@ -18,6 +18,7 @@ import NewsScreen from '../screens/NewsScreen/Details';
 import MatchesScreen from '../screens/MatchesScreen/Matches';
 import FavoritesScreen from '../screens/FavoritesScreen/Favorites';
 import SettingsScreen from '../screens/SettingsScreen/Settings';
+import SearchScreen from '../screens/SearchScreen/SearchScreen';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ const NewsNavigator = () => {
         }}
         initialRouteName="Discover"
       >
+        <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="Discover" component={DiscoverScreen} />
         <Stack.Screen name="Details" component={NewsScreen} />
       </Stack.Navigator>

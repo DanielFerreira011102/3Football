@@ -122,4 +122,85 @@ const USERData = [
   },
 ];
 
-export { USERData, NEWSData,  };
+const SEARCHData = [
+  {
+    id: "NEWS-01",
+    type: 'News',
+    title: "Kylian Mbappé considering renewing with PSG over image rights conditions",
+  },
+  {
+    id: "NEWS-02",
+    type: 'News',
+    title: "Cristiano Ronaldo and Bruno Fernandes' broken Man Utd connection explained as woes worsen",
+  },
+  {
+    id: "NEWS-03",
+    type: 'News',
+    title: "3Football voted the best app in the history of the universe and beyond",
+  },
+  {
+    id: "NEWS-04",
+    type: 'News',
+    title: "American-Portuguese teen prodigy IShowSpeed: A star in the making",
+  },
+  {
+    id: "NEWS-05",
+    type: 'News',
+    title: "World Cup 2022: Fixtures, schedule and kick-off times for Qatar",
+  },
+  {
+    id: "NEWS-06",
+    type: 'News',
+    title: "Manchester United Captain Harry Maguire Invents Revolutionary 'No Look Defending'",
+  },
+  {
+    id: "TEAM-01",
+    type: 'Team',
+    title: "Benfica",
+    img: assets.benfica,
+  },
+  {
+    id: "TEAM-02",
+    type: 'Team',
+    title: "Sporting",
+    img: assets.sporting,
+  },
+  {
+    id: "TEAM-03",
+    type: 'Team',
+    title: "Porto",
+    img: assets.porto,
+  },
+  {
+    id: "PLAYER-01",
+    type: 'Player',
+    title: "Cristiano Ronaldo",
+    img: assets.cristiano_ronaldo,
+  },
+  {
+    id: "PLAYER-02",
+    type: 'Player',
+    title: "Lionel Messi",
+    img: assets.lionel_messi,
+  },
+  {
+    id: "PLAYER-03",
+    type: 'Player',
+    title: "Bernardo Silva",
+    img: assets.bernardo_silva,
+  },
+  {
+    id: "MANAGER-01",
+    type: 'Manager',
+    title: "Josep Guardiola",
+    img: assets.josep_guardiola,
+  },
+  {
+    id: "EVENT-01",
+    type: 'Event',
+    title: "Premier League",
+    img: assets.premier_league,
+  },
+]
+
+export { USERData, NEWSData, SEARCHData};

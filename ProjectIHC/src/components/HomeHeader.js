@@ -1,9 +1,16 @@
 import React from "react";
-import { View, Text, Image, TextInput } from "react-native";
-
+import { View, Text, Image, TextInput, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 
 const HomeHeader = ({ onSearch, username, userimg }) => {
+
+  const navigation = useNavigation();
+
+  const handleSearch = () => {
+    navigation.navigate("Search")
+  };
+
   return (
     <View
       style={{
@@ -55,7 +62,8 @@ const HomeHeader = ({ onSearch, username, userimg }) => {
           Learn about the world of football 
         </Text>
       </View>
-
+      
+      <Pressable onPress={handleSearch}>
       <View>
         <View
           style={{
@@ -76,10 +84,12 @@ const HomeHeader = ({ onSearch, username, userimg }) => {
           <TextInput
             placeholder="Search matches, events, players, news..."
             style={{ flex: 1 }}
-            onChangeText={onSearch}
+            editable={false}
+            selectTextOnFocus={false}
           />
         </View>
       </View>
+      </Pressable>
     </View>
   );
 };
