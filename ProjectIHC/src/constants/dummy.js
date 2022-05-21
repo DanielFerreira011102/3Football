@@ -203,4 +203,123 @@ const SEARCHData = [
   },
 ]
 
-export { USERData, NEWSData, SEARCHData};
+const getDay = ( number ) => {
+  const today = new Date()
+  let next =  new Date()
+  next.setDate(today.getDate() + number)
+  return next.getDate() + "/" + (next.getMonth() + 1) + "/" + next.getFullYear();
+}
+
+const MATCHData = [
+  {
+    id: getDay(-1),
+    matches: [
+      {
+        id: "MATCH-01",
+        team1: {
+          name: "Benfica",
+          img: assets.benfica,
+          score: 3,
+        },
+        team2: {
+          name: "Sporting",
+          img: assets.sporting,
+          score: 0,
+        },
+        status: "FT",
+        event: "Liga Portugal Bwin",
+      },
+      {
+        id: "MATCH-02",
+        team1: {
+          name: "Porto",
+          img: assets.porto,
+          score: 1,
+        },
+        team2: {
+          name: "Liverpool",
+          img: assets.sporting,
+          score: 1,
+        },
+        status: "FT",
+        event: "UEFA Champions League",
+        phase: "Quarter-finals"
+      },
+    ]
+  },
+  {
+    id: getDay(0),
+    matches: [
+    {
+      id: "MATCH-01",
+      team1: {
+        name: "Liverpool",
+        img: assets.sporting,
+        score: 3,
+      },
+      team2: {
+        name: "Porto",
+        img: assets.porto,
+        score: 1,
+      },
+      status: "LIVE",
+      time: 33,
+      event: "UEFA Champions League",
+      phase: "Quarter-finals",
+      aggr: '(' + 2 + "-" + 4 + ')',
+    },
+    {
+      id: "MATCH-02",
+      team1: {
+        name: "Man. City",
+        img: assets.benfica,
+      },
+      team2: {
+        name: "Real Madrid",
+        img: assets.sporting,
+      },
+      status: "NS",
+      time: "22:00",
+      event: "UEFA Champions League",
+      phase: "Quarter-finals",
+      aggr: '(' + 3 + "-" + 1 + ')',
+    },
+    {
+      id: "MATCH-03",
+      team1: {
+        name: "Benfica",
+        img: assets.benfica,
+        score: 2,
+      },
+      team2: {
+        name: "Sporting",
+        img: assets.sporting,
+        score: 2,
+      },
+      status: "FT",
+      event: "Liga Portugal Bwin",
+    },
+  ],
+  },
+  {
+    id: getDay(1),
+    matches: [
+    {
+      id: "MATCH-01",
+      team1: {
+        name: "Benfica",
+        img: assets.benfica,
+      },
+      team2: {
+        name: "Sporting",
+        img: assets.sporting,
+      },
+      status: "NS",
+      time: "20:30",
+      event: "Liga Portugal Bwin",
+    },
+  ]  
+  },
+]
+
+export { USERData, NEWSData, SEARCHData, MATCHData};

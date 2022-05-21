@@ -2,13 +2,23 @@ import {React, useState, useRef} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Dimensions, FlatList, Pressable} from 'react-native';
 import CalendarStrip from 'react-native-calendar-strip';
 import { Divider } from 'react-native-paper';
-import { NEWSCard, HomeHeader, FocusedStatusBar } from "../../components";
-import { COLORS, NEWSData } from "../../constants";
+import { NEWSCard, MATCHCard, HomeHeader, FocusedStatusBar } from "../../components";
+import { COLORS, NEWSData, MATCHData } from "../../constants";
 
 const Matches = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
-  const [newsData, setNewsData] = useState(NEWSData);
+
+  const today = new Date()
+  const strtdy = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+
+  const [matchData, setMatchData] = useState(MATCHData.find(m => m.id == strtdy).matches);
+
+  const onSelect = selectedDate => {
+    const date = selectedDate.toDate();
+    const strdate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+    setMatchData(MATCHData.find(m => m.id === strdate).matches)
+  }
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -16,8 +26,8 @@ const Matches = () => {
       <View style={{ flex: 1 }}>
         <View style={{ zIndex: 0 }}>
           <FlatList
-            data={newsData}
-            renderItem={({ item }) => <NEWSCard data={item} />}
+            data={matchData}
+            renderItem={({ item }) => <MATCHCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
           />
@@ -47,7 +57,7 @@ const Matches = () => {
           }}
           calendarColor={'#001F2D'}
           selectedDate={new Date()}
-          onDateSelected={()=>{}}
+          onDateSelected={onSelect}
           highlightDateNumberStyle={{color: '#4287f5', fontSize: 24}}
           highlightDateNameStyle={{color: '#4287f5', fontSize: 16}}
           calendarHeaderStyle={{color: 'white', fontSize: 20}}
