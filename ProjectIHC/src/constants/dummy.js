@@ -124,36 +124,6 @@ const USERData = [
 
 const SEARCHData = [
   {
-    id: "NEWS-01",
-    type: 'News',
-    title: "Kylian Mbappé considering renewing with PSG over image rights conditions",
-  },
-  {
-    id: "NEWS-02",
-    type: 'News',
-    title: "Cristiano Ronaldo and Bruno Fernandes' broken Man Utd connection explained as woes worsen",
-  },
-  {
-    id: "NEWS-03",
-    type: 'News',
-    title: "3Football voted the best app in the history of the universe and beyond",
-  },
-  {
-    id: "NEWS-04",
-    type: 'News',
-    title: "American-Portuguese teen prodigy IShowSpeed: A star in the making",
-  },
-  {
-    id: "NEWS-05",
-    type: 'News',
-    title: "World Cup 2022: Fixtures, schedule and kick-off times for Qatar",
-  },
-  {
-    id: "NEWS-06",
-    type: 'News',
-    title: "Manchester United Captain Harry Maguire Invents Revolutionary 'No Look Defending'",
-  },
-  {
     id: "TEAM-01",
     type: 'Team',
     title: "Benfica",
@@ -201,6 +171,36 @@ const SEARCHData = [
     title: "Premier League",
     img: assets.premier_league,
   },
+  {
+    id: "NEWS-01",
+    type: 'News',
+    title: "Kylian Mbappé considering renewing with PSG over image rights conditions",
+  },
+  {
+    id: "NEWS-02",
+    type: 'News',
+    title: "Cristiano Ronaldo and Bruno Fernandes' broken Man Utd connection explained as woes worsen",
+  },
+  {
+    id: "NEWS-03",
+    type: 'News',
+    title: "3Football voted the best app in the history of the universe and beyond",
+  },
+  {
+    id: "NEWS-04",
+    type: 'News',
+    title: "American-Portuguese teen prodigy IShowSpeed: A star in the making",
+  },
+  {
+    id: "NEWS-05",
+    type: 'News',
+    title: "World Cup 2022: Fixtures, schedule and kick-off times for Qatar",
+  },
+  {
+    id: "NEWS-06",
+    type: 'News',
+    title: "Manchester United Captain Harry Maguire Invents Revolutionary 'No Look Defending'",
+  },
 ]
 
 const getDay = ( number ) => {
@@ -238,7 +238,7 @@ const MATCHData = [
         },
         team2: {
           name: "Liverpool",
-          img: assets.sporting,
+          img: assets.liverpool,
           score: 1,
         },
         status: "FT",
@@ -254,7 +254,7 @@ const MATCHData = [
       id: "MATCH-01",
       team1: {
         name: "Liverpool",
-        img: assets.sporting,
+        img: assets.liverpool,
         score: 3,
       },
       team2: {
@@ -266,23 +266,23 @@ const MATCHData = [
       time: 33,
       event: "UEFA Champions League",
       phase: "Quarter-finals",
-      aggr: '(' + 2 + "-" + 4 + ')',
+      aggr: '(' + 4 + " - " + 2 + ')',
     },
     {
       id: "MATCH-02",
       team1: {
         name: "Man. City",
-        img: assets.benfica,
+        img: assets.man_city,
       },
       team2: {
         name: "Real Madrid",
-        img: assets.sporting,
+        img: assets.real_madrid,
       },
       status: "NS",
       time: "22:00",
       event: "UEFA Champions League",
       phase: "Quarter-finals",
-      aggr: '(' + 3 + "-" + 1 + ')',
+      aggr: '(' + 4 + " - " + 1 + ')',
     },
     {
       id: "MATCH-03",

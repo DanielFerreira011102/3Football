@@ -2,6 +2,7 @@ import React, {useState, useRef} from "react";
 import { SafeAreaView, StatusBar, TextInput, View, Image, FlatList, Text} from "react-native";
 import { CircleButton, SEARCHCard } from "../../components";
 import { COLORS, FONTS, SIZES, assets, SEARCHData } from "../../constants";
+import { Divider } from 'react-native-paper';
 
 const Search = ({ navigation }) => {
     const [searchData, setSearchData] = useState(SEARCHData);
@@ -38,7 +39,7 @@ const Search = ({ navigation }) => {
                         navigation.goBack()}}
                     top={StatusBar.currentHeight - 15}
                     />
-                    <Text style={{marginLeft: 65, marginTop: 15, color: "white", fontSize: 20}}>Learn about the world of football</Text>
+                    <Text style={{marginLeft: 65, marginTop: StatusBar.currentHeight - 10, color: "white", fontSize: 20}}>Learn about the world of football</Text>
                 </View>
                 <View
                     style={{
@@ -60,7 +61,6 @@ const Search = ({ navigation }) => {
                     <TextInput
                         placeholder="Search matches, events, players, news..."
                         style={{ flex: 1 }}
-                        returnKeyType="Search"
                         onChangeText={handleSearch}
                         autoFocus={true}
                         ref={lastNameRef}
@@ -74,6 +74,7 @@ const Search = ({ navigation }) => {
                     keyExtractor={(item) => item.id}
                     showsVerticalScrollIndicator={false}
                 />
+                <Divider />
             </View>
         </SafeAreaView>
   );

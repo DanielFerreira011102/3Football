@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
@@ -13,6 +13,10 @@ const SignUpScreen = () => {
   const {control, handleSubmit, watch} = useForm();
   const pwd = watch('password');
   const navigation = useNavigation();
+
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const passwordRepeatRef = useRef()
 
   const onRegisterPressed = () => {
     navigation.navigate('ConfirmEmail');
@@ -39,6 +43,9 @@ const SignUpScreen = () => {
           name="username"
           control={control}
           placeholder="Username"
+          returnKey="next"
+          submit={() => {emailRef.current.focus()}}
+          blurSubmit={false}
           rules={{
             required: 'Username is required',
             minLength: {
@@ -55,6 +62,10 @@ const SignUpScreen = () => {
           name="email"
           control={control}
           placeholder="Email"
+          returnKey="next"
+          submit={() => {passwordRef.current.focus()}}
+          aref={emailRef}
+          blurSubmit={false}
           rules={{
             required: 'Email is required',
             pattern: {value: EMAIL_REGEX, message: 'Email is invalid'},
@@ -66,6 +77,10 @@ const SignUpScreen = () => {
           control={control}
           placeholder="Password"
           secureTextEntry
+          returnKey="next"
+          submit={() => {passwordRepeatRef.current.focus()}}
+          aref={passwordRef}
+          blurSubmit={false}
           rules={{
             required: 'Password is required',
             minLength: {
@@ -77,6 +92,7 @@ const SignUpScreen = () => {
         <CustomInput
           name="password-repeat"
           control={control}
+          aref={passwordRepeatRef}
           placeholder="Repeat Password"
           secureTextEntry
           rules={{

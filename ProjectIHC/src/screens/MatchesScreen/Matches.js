@@ -17,29 +17,34 @@ const Matches = () => {
   const onSelect = selectedDate => {
     const date = selectedDate.toDate();
     const strdate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-    setMatchData(MATCHData.find(m => m.id === strdate).matches)
+    setMatchData(MATCHData.find(m => m.id === strdate)?.matches)
+  }
+
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
   }
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <FocusedStatusBar backgroundColor={COLORS.primary} />
       <View style={{ flex: 1 }}>
+      {matchData != undefined?
         <View style={{ zIndex: 0 }}>
           <FlatList
-            data={matchData}
-            renderItem={({ item }) => <MATCHCard data={item} />}
-            keyExtractor={(item) => item.id}
-            showsVerticalScrollIndicator={false}
-          />
+              data={matchData}
+              renderItem={({ item }) => <MATCHCard data={item} />}
+              keyExtractor={(item) => item.id}
+              showsVerticalScrollIndicator={false} /><Divider />
         </View>
+        : <Text style={{alignSelf: 'center', marginTop: '50%', fontSize: 25}}>No matches stored</Text>
+      }
       </View>
       <View
           style=
           {{
-            marginTop: windowHeight-172,
             position: "absolute",
-            height: 280,
-            top: 0,
             bottom: 0,
             right: 0,
             left: 0,
@@ -56,6 +61,7 @@ const Matches = () => {
             paddingBottom: 0,
           }}
           calendarColor={'#001F2D'}
+          startingDate={addDays(new Date(), -3)}
           selectedDate={new Date()}
           onDateSelected={onSelect}
           highlightDateNumberStyle={{color: '#4287f5', fontSize: 24}}

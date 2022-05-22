@@ -11,8 +11,8 @@ const MATCHCard = ({ data }) => {
     const team2 = data.team2;
     const team1name = team1.name;
     const team2name = team2.name;
-    const team1score = team1.score? team1.score: undefined;
-    const team2score = team2.score? team2.score: undefined;
+    const team1score = team1.score
+    const team2score = team2.score
     const team1img = team1.img
     const team2img = team2.img
     const status = data.status
@@ -26,10 +26,25 @@ const MATCHCard = ({ data }) => {
     const handler = () => {
         //
     }
-    
-    const MCard = ({ handler }) => {
+
+    const Score = () => {
         return (
-            <View style={{height: 90}}>
+            <View style={{flexDirection: "column", alignItems: 'center', width: '50%'}}>
+                    <Text style={{color: "#525252"}}>{event}</Text>
+                    {phase != undefined? <Text>{phase}</Text> : null}
+                    {status != "NS"? <Text style={{fontSize: 25}}>{team1score} - {team2score}</Text>: <Text style={{fontSize: 25}}>{time}</Text>}
+                    {aggr != undefined? <Text style={{color: "#525252"}}>{aggr}</Text> : null} 
+                    <View style={{flexDirection: 'row', alignItems: 'center', marginRight: 10}}>
+                        {status == "LIVE"? <><Image source={require('../../assets/images/red.png')} style={{height: 7, width: 7, marginRight: 5}}></Image><Text style={{color: 'red'}}>{status}</Text></> : null}
+                    </View>
+                    {status == "FT"? <Text style={{color: "#525252"}}>{status}</Text> : null}
+            </View>
+        )
+    }
+    
+    const MCard = () => {
+        return (
+            <View style={{height: 120}}>
                 <Divider style={{height: 1}}/>
                 <Pressable onPress={handler}>
                     <View
@@ -38,11 +53,11 @@ const MATCHCard = ({ data }) => {
                             height: "100%",
                             paddingHorizontal: SIZES.font - 5,
                             flexDirection: "row",
-                            justifyContent: "space-between",
+                            justifyContent: "space-around",
                             alignItems: "center",
                         }}
                         >
-                        <View style={{ flexDirection: "column", alignItems: "flex-start",}}>
+                        <View style={{ flexDirection: "column", alignItems: "flex-start", width: '25%'}}>
                             <Image
                                 source={team1img}
                                 resizeMode="contain"
@@ -55,7 +70,8 @@ const MATCHCard = ({ data }) => {
                             />
                             <Text style={{paddingLeft: 7}}>{team1name}</Text>
                         </View>
-                        <View style={{ flexDirection: "column", alignItems: 'flex-end',}}>
+                        <Score />
+                        <View style={{ flexDirection: "column", alignItems: 'flex-end', width: '25%'}}>
                             <Image
                                 source={team2img}
                                 resizeMode="contain"

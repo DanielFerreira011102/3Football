@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   View,
   Image,
@@ -23,7 +23,9 @@ import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 const SignInScreen = () => {
   const {height, width} = useWindowDimensions();
   const navigation = useNavigation();
-  
+
+  const passwordRef = useRef();
+
   const {
     control,
     handleSubmit,
@@ -115,6 +117,9 @@ const SignInScreen = () => {
           name="username"
           placeholder="Username or email"
           control={control}
+          returnKey="next"
+          submit={() => {passwordRef.current.focus()}}
+          blurSubmit={false}
           rules=
           {{
             required: 'Username is required',
@@ -125,6 +130,7 @@ const SignInScreen = () => {
           name="password"
           placeholder="Password"
           secureTextEntry
+          aref={passwordRef}
           control={control}
           rules=
           {{

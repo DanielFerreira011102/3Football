@@ -20,6 +20,9 @@ import user1 from "../../assets/images/user.png";
 import benfica from "../../assets/images/benfica.png";
 import sporting from "../../assets/images/sporting.png";
 import porto from "../../assets/images/porto.png";
+import man_city from "../../assets/images/man_city.png";
+import real_madrid from "../../assets/images/real_madrid.png";
+import liverpool from "../../assets/images/liverpool.png";
 import cristiano_ronaldo from "../../assets/images/cristiano_ronaldo.jpg";
 import lionel_messi from "../../assets/images/lionel_messi.png";
 import bernardo_silva from "../../assets/images/bernardo_silva.jpg";
@@ -49,6 +52,9 @@ export default {
   benfica,
   sporting,
   porto,
+  man_city,
+  liverpool,
+  real_madrid,
   cristiano_ronaldo,
   lionel_messi,
   bernardo_silva,

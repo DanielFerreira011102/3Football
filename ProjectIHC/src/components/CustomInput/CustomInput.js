@@ -8,6 +8,10 @@ const CustomInput = ({
   rules = {},
   placeholder,
   secureTextEntry,
+  returnKey,
+  submit,
+  aref,
+  blurSubmit,
 }) => {
   return (
     <Controller
@@ -28,6 +32,10 @@ const CustomInput = ({
               placeholder={placeholder}
               style={styles.input}
               secureTextEntry={secureTextEntry}
+              returnKeyType={returnKey}
+              ref={aref}
+              onSubmitEditing={submit}
+              blurOnSubmit={blurSubmit}
             />
           </View>
           {error && (
