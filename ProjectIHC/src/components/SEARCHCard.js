@@ -73,13 +73,13 @@ const SEARCHCard = ({ data }) => {
             );
     }
     if (type == "Player")
-        return (<PTECard handler={() => {}}/>);    
+        return (<PTECard handler={() => {navigation.navigate('Player')}}/>);    
     if (type == "Team")
         return (<PTECard handler={() => {}}/>);
     if (type == "Manager")
         return (<PTECard handler={() => {}}/>);       
     if (type == "Event") 
-        return (<PTECard handler={() => {}}/>);          
+        return (<PTECard handler={() => {navigation.navigate('Evento')}}/>);          
 };
 
 export default SEARCHCard;

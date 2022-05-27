@@ -4,9 +4,7 @@ import { View, Text, SafeAreaView, Image, StatusBar, FlatList } from "react-nati
 import { COLORS, SIZES, assets, SHADOWS, FONTS } from "../../constants";
 import { SubInfo, NEWSTitle, FocusedStatusBar, CircleButton, RectButton } from "../../components";
 
-
-
-const DetailsHeader = ({ data, navigation }) => (
+const DetailsHeader = ({ data, navigation, heartImg, heartHandler }) => (
   <View style={{ width: "100%", height: 373 }}>
     <Image
       source={data.image}
@@ -22,8 +20,9 @@ const DetailsHeader = ({ data, navigation }) => (
     />
 
     <CircleButton
-      imgUrl={assets.heart}
+      imgUrl={heartImg}
       right={15}
+      handlePress={heartHandler}
       top={StatusBar.currentHeight + 10}
     />
   </View>
@@ -31,6 +30,14 @@ const DetailsHeader = ({ data, navigation }) => (
 
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
+
+  const [heartImage, setHeartImage] = useState(assets.heartol);
+
+  const heartHandler = () => {
+    if (heartImage == assets.heart)
+      setHeartImage(assets.heartol)
+    else setHeartImage(assets.heart)
+  }
 
   function shorten(text,max) {
     return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join(' ') : text
@@ -85,7 +92,7 @@ const Details = ({ route, navigation }) => {
         }}
         ListHeaderComponent={() => (
           <React.Fragment>
-            <DetailsHeader data={data} navigation={navigation} />
+            <DetailsHeader data={data} navigation={navigation} heartImg={heartImage} heartHandler={heartHandler} />
             <SubInfo date={data.date}/>
             <View style={{ paddingLeft: SIZES.font, paddingRight: SIZES.font }}>
               <View

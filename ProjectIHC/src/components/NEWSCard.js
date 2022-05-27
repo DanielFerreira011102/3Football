@@ -1,13 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Image, Pressable } from "react-native";
 
-import { COLORS, SIZES, SHADOWS, assets } from "../constants";
+import { COLORS, SIZES, SHADOWS, assets} from "../constants";
 import { SubInfo, NEWSTitle } from "./SubInfo";
 import { RectButton, CircleButton } from "./Button";
 
 const NEWSCard = ({ data }) => {
+  const [heartImage, setHeartImage] = useState(assets.heartol);
   const navigation = useNavigation();
+
+  const heartHandler = () => {
+    if (heartImage == assets.heart)
+      setHeartImage(assets.heartol)
+    else setHeartImage(assets.heart)
+  }
+
   return (
     <Pressable onPress={() => navigation.navigate("Details", { data })}>
     <View
@@ -36,7 +44,7 @@ const NEWSCard = ({ data }) => {
           }}
         />
 
-        <CircleButton imgUrl={assets.heart} right={10} top={10} />
+        <CircleButton imgUrl={heartImage} right={10} top={10} handlePress={heartHandler} />
       </View>
       
       <SubInfo creator={data.creator_img} date={data.date}/>

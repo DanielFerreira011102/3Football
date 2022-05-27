@@ -19,10 +19,32 @@ import MatchesScreen from '../screens/MatchesScreen/Matches';
 import FavoritesScreen from '../screens/FavoritesScreen/Favorites';
 import SettingsScreen from '../screens/SettingsScreen/Settings';
 import SearchScreen from '../screens/SearchScreen/SearchScreen';
+import PlayerScreen from '../screens/PlayerScreen';
+import EventScreen from '../screens/EventScreen';
+import TeamScreen from '../screens/TeamScreen';
+import ManagerScreen from '../screens/ManagerScreen';
+import MatchScreen from '../screens/MatchScreen';
 
 const Stack = createStackNavigator();
 
 const Tab = createBottomTabNavigator();
+
+const SearchNavigator = () => {
+  return (
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="Search"
+      >
+        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="Player" component={PlayerScreen} />
+        <Stack.Screen name="Team" component={TeamScreen}  />
+        <Stack.Screen name="Manager" component={ManagerScreen}  />
+        <Stack.Screen name="Evento" component={EventScreen}  />
+      </Stack.Navigator>
+  );
+};
 
 const NewsNavigator = () => {
   return (
@@ -32,9 +54,23 @@ const NewsNavigator = () => {
         }}
         initialRouteName="Discover"
       >
-        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="SearchNav" component={SearchNavigator}  />
         <Stack.Screen name="Discover" component={DiscoverScreen} />
         <Stack.Screen name="Details" component={NewsScreen} />
+      </Stack.Navigator>
+  );
+};
+
+const MacthNavigator = () => {
+  return (
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="MatchGroup"
+      >
+        <Stack.Screen name="MatchGroup" component={MatchesScreen}  />
+        <Stack.Screen name="Match" component={MatchScreen} />
       </Stack.Navigator>
   );
 };
@@ -82,7 +118,7 @@ const TabNavigator = () => {
     initialRouteName="News"
     >
       <Tab.Screen name="News" component={NewsNavigator} />
-      <Tab.Screen name="Matches" component={MatchesScreen} />
+      <Tab.Screen name="Matches" component={MacthNavigator} />
       <Tab.Screen name="Favorites" component={FavoritesScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>

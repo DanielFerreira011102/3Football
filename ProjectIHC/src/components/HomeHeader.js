@@ -8,7 +8,7 @@ const HomeHeader = ({ onSearch, username, userimg }) => {
   const navigation = useNavigation();
 
   const handleSearch = () => {
-    navigation.navigate("Search")
+    navigation.navigate("SearchNav")
   };
 
   return (

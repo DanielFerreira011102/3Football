@@ -1,4 +1,5 @@
 import heart from "../../assets/icons/heart.png";
+import heartol from "../../assets/icons/heart-ol.png";
 import left from "../../assets/icons/left.png";
 import search from "../../assets/icons/search.png";
 
@@ -30,6 +31,7 @@ import josep_guardiola from "../../assets/images/josep_guardiola.png";
 import premier_league from "../../assets/images/premier_league.png";
 
 export default {
+  heartol,
   heart,
   left,
   search,

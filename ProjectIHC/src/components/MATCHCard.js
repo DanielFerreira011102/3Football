@@ -23,10 +23,6 @@ const MATCHCard = ({ data }) => {
 
     const navigation = useNavigation();
 
-    const handler = () => {
-        //
-    }
-
     const Score = () => {
         return (
             <View style={{flexDirection: "column", alignItems: 'center', width: '50%'}}>
@@ -46,7 +42,7 @@ const MATCHCard = ({ data }) => {
         return (
             <View style={{height: 120}}>
                 <Divider style={{height: 1}}/>
-                <Pressable onPress={handler}>
+                <Pressable onPress={() => {navigation.navigate("Match")}}>
                     <View
                         style={{
                             width: "100%",
