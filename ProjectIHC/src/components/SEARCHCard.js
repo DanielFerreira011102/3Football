@@ -79,7 +79,24 @@ const SEARCHCard = ({ data }) => {
     if (type == "Manager")
         return (<PTECard handler={() => {navigation.navigate('Manager')}}/>);       
     if (type == "Event") 
-        return (<PTECard handler={() => {navigation.navigate('Evento')}}/>);          
+        return (<PTECard handler={() => {}}/>);   
+    if (type == "Title") 
+        return (
+            <View style={{height: 100}}>
+                <Divider style={{height: 1}}/>
+                <View
+                    style={{
+                        width: "100%",
+                        padding: SIZES.font,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                    >
+                    <Text style={{paddingHorizontal: 10, paddingTop: 20, fontSize: 30, fontWeight: 'bold'}}>{title}</Text>
+                </View>
+            </View>
+        );
 };
 
 export default SEARCHCard;
