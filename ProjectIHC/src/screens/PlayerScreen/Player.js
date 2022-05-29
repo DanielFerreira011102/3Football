@@ -2,27 +2,22 @@ import React, {useState} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 
-const FirstRoute = () => (
+const ProfileRoute = () => (
   <SafeAreaView style={{ flex: 1, backgroundColor: '#ff4081' }} />
 );
 
-const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
-);
-
-const thirdRoute = () => (
+const StatsRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#3a5aab' }} />
 );
 
-const fourthRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#b4c4c7' }} />
+const CareerRoute = () => (
+  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
 );
 
 const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-  third: thirdRoute,
-  fourth: fourthRoute,
+  first: ProfileRoute,
+  second: StatsRoute,
+  third: CareerRoute,
 });
 
 const Player = () => {
@@ -31,10 +26,9 @@ const Player = () => {
 
   const [index, setIndex] = useState(0);
   const [routes] = useState([
-    { key: 'first', title: 'First' },
-    { key: 'second', title: 'Second' },
-    { key: 'third', title: 'Third' },
-    { key: 'fourth', title: 'Fourth' },
+    { key: 'first', title: 'Profile' },
+    { key: 'second', title: 'Stats' },
+    { key: 'third', title: 'Career' },
   ]);
 
   return (

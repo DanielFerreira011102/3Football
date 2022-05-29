@@ -75,9 +75,9 @@ const SEARCHCard = ({ data }) => {
     if (type == "Player")
         return (<PTECard handler={() => {navigation.navigate('Player')}}/>);    
     if (type == "Team")
-        return (<PTECard handler={() => {}}/>);
+        return (<PTECard handler={() => {navigation.navigate('Team')}}/>);
     if (type == "Manager")
-        return (<PTECard handler={() => {}}/>);       
+        return (<PTECard handler={() => {navigation.navigate('Manager')}}/>);       
     if (type == "Event") 
         return (<PTECard handler={() => {navigation.navigate('Evento')}}/>);          
 };
