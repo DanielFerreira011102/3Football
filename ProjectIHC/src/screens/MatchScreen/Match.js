@@ -1,22 +1,109 @@
-import React, {useState} from "react";
-import { SafeAreaView, Text, ScrollView, View, useWindowDimensions } from "react-native";
+import React, {useState, useRef} from "react";
+import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, TouchableHighlight } from "react-native";
+import { CircleButton } from "../../components";
 import { TabView, SceneMap } from 'react-native-tab-view';
+import lineUpTeam1 from '../../../assets/images/lineUpTeam1.png';
+import bola from '../../../assets/images/soccer_ball.png';
+import matchStats from '../../../assets/images/matchStats.jpg';
+import gobackbutton from '../../../assets/images/left.png';
+
 
 const Overview = () => (
-  <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: '#ff4081' }}><View style={{height: '120%'}}><Text style={{fontSize: 200}}>juefeddedededhef</Text></View></ ScrollView>
+  <SafeAreaView style={{backgroundColor: '#ffffff'}}>
+  <View style={styles.div}>
+    <Image source={bola}  style={{width: 40, height: 40, marginLeft: 40, marginRight: 20}}/>
+    <Text style={styles.titleL}>32' Player 7</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.titleR}>41' Player 22</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.titleL}>61' Player 75</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.titleL}>78' Player 34</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.titleR}>84' Player 11</Text>
+  </View>
+  <View style={{height: 100, backgroundColor: '#ffffff'}}/>
+  </SafeAreaView>
 );
 
 const Lineup = () => (
-  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
+  <View style={{flex: 1, backgroundColor: '#ffffff'}}>
+    <Image source={lineUpTeam1}  style={{width: '80%', height: '100%', marginLeft: 40, marginRight: 20}}/>
+  </View>
 );
 
 const Stats = () => (
-  <View style={{ flex: 1, backgroundColor: '#3a5aab' }} />
+  <View style={{ flex: 1, backgroundColor: '#000000'}}>
+    <Image source={matchStats} resizeMode={'stretch'} style={{width: '100%', height: '108%', marginLeft: 0}}/>
+  </View>
 );
 
 const Details = () => (
-  <View style={{ flex: 1, backgroundColor: '#b4c4c7' }} />
+  <SafeAreaView style={{backgroundColor: '#ffffff'}}>
+  <View style={styles.div}>
+    <Text style={styles.title}>Competition</Text>
+    <Text style={styles.subtitle}>Liga das Nações</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.title}>Kick off</Text>
+    <Text style={styles.subtitle}>Sexta 2 junho 19:45</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.title}>Attendance</Text>
+    <Text style={styles.subtitle}>60 721</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.title}>Stadium</Text>
+    <Text style={styles.subtitle}>Benito Villamarín</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.title}>Referee</Text>
+    <Text style={styles.subtitle}>Michael Oliver</Text>
+  </View>
+  <View style={styles.div}>
+    <Text style={styles.title}>Broadcast</Text>
+    <Text style={styles.subtitle}>Sport TV</Text>
+  </View>
+  <View style={{height: 100, backgroundColor: '#ffffff'}}/>
+  </SafeAreaView>
 );
+
+const styles = StyleSheet.create({
+  div: {
+    height: 80, 
+    padding: 10
+  },
+  title: {
+    fontSize: 20, 
+    fontWeight: "bold",
+    paddingLeft: 10,
+  },
+  OverviewInfo: {
+    fontSize: 26, 
+    fontWeight: "bold",
+    paddingLeft: 10,
+  },
+  titleL: {
+    fontSize: 26, 
+    fontWeight: "bold",
+    marginRight: 100,
+  },
+  titleR: {
+    fontSize: 26, 
+    fontWeight: "bold",
+    marginLeft: 100,
+    textAlign: 'right',
+  },
+  subtitle: {
+    fontSize: 18, 
+    paddingLeft: 40, 
+    paddingTop: 10
+  },
+});
 
 const renderScene = SceneMap({
   first: Overview,
@@ -25,9 +112,10 @@ const renderScene = SceneMap({
   fourth: Details,
 });
 
-const Match = () => {
+const Match = ({ navigation }) => {
 
   const layout = useWindowDimensions();
+  const lastNameRef = useRef();
 
   const [index, setIndex] = useState(0);
   const [routes] = useState([
@@ -39,7 +127,12 @@ const Match = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{height: 200}}></View>
+      <View style={{height: 150, backgroundColor: '#4e1e85'}}>
+        <View style={{marginLeft: 20, marginTop: 20, backgroundColor: '#000000'}}>
+        <CircleButton imgUrl={gobackbutton}
+        handlePress={() => {navigation.goBack()}}/>
+        </View>
+      </View>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
