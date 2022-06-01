@@ -1,23 +1,27 @@
 import React, {useState} from "react";
-import { SafeAreaView, Text, ScrollView, View, useWindowDimensions } from "react-native";
+import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
+import trofeus from '../../../assets/images/trophy.png';
 
 const ProfileRoute = () => (
-  <SafeAreaView style={{ flex: 1, backgroundColor: '#ff4081' }} />
+  <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }} >
+    <View style={{ flex: 1, paddingLeft: 10, paddingTop: 10, paddingRight: 10 }}>
+      <Text style={{ fontSize: 18 }}>O melhor jogador de Portugal, uma incrível lenda viva, um prodígio desde pequeno</Text>
+    </View>
+  </SafeAreaView>
 );
 
-const StatsRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#3a5aab' }} />
-);
 
 const CareerRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
+  <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+     <Image source={trofeus} resizeMode={'stretch'} style={{width: '100%', height: '35%', marginLeft: 0}}/>
+     <Text style={{ fontSize: 20, paddingTop: 30, paddingLeft: 10 }}>Atualmente joga na melhor liga do mundo</Text>
+  </View>
 );
 
 const renderScene = SceneMap({
   first: ProfileRoute,
-  second: StatsRoute,
-  third: CareerRoute,
+  second: CareerRoute,
 });
 
 const Player = () => {
@@ -27,8 +31,7 @@ const Player = () => {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     { key: 'first', title: 'Profile' },
-    { key: 'second', title: 'Stats' },
-    { key: 'third', title: 'Career' },
+    { key: 'second', title: 'Career' },
   ]);
 
   return (

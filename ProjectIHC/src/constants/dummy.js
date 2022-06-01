@@ -29,7 +29,7 @@ Mbappé has yet to make a final decision on his future, with his representatives
     description:
       `When Manchester United re-signed Cristiano Ronaldo back in the summer, they believed his connection with Bruno Fernandes on the field could secure them the Premier League title. Certainly, it had the makings of a special partnership due to the outstanding talents of both men. But, after Saturday's 3-1 defeat to Arsenal and with just a few games to go, it seems something is broken between the pair.
 
-Manchester United weren't as bad against Arsenal as they had been against Liverpool a few days previously. But Fernandes was equally poor in both matches, with the Portugal international starting to look a shadow of the player he was during Ole Gunnar Solskjaer’s tenure.
+Manchester United weren't as bad against Arsenal as they had been a few days previously. But Fernandes was equally poor in both matches, with the Portugal international starting to look a shadow of the player he was during Ole Gunnar Solskjaer’s tenure.
 With Arsenal 2-1 ahead, United were given a penalty following a handball inside the box.
 
 Many expected Ronaldo to step up, especially given the fact the 37-year-old had already netted earlier in the day.
@@ -117,6 +117,12 @@ const USERData = [
   {
     id: "USER-03",
     username: "Guilherme",
+    password: "1234",
+    img: assets.user1
+  },
+  {
+    id: "USER-04",
+    username: "default",
     password: "1234",
     img: assets.user1
   },
@@ -425,25 +431,6 @@ const favourites = [
     id: "NEWS-06",
     type: 'News',
     title: "Manchester United Captain Harry Maguire Invents Revolutionary 'No Look Defending'",
-  },
-]
-
-const old_favourites = [
-  {
-    userID: "USER-01",
-    players: [],
-    teams: [],
-    events: [],
-    managers: [],
-    news: [],     
-  },
-  {
-    userID: "USER-02",
-    players: [],
-    teams: [],
-    events: [],
-    managers: [],
-    news: [],
   },
 ]
 

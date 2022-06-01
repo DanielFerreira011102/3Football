@@ -82,7 +82,7 @@ const HomeHeader = ({ onSearch, username, userimg }) => {
             style={{ width: 20, height: 20, marginRight: SIZES.base }}
           />
           <TextInput
-            placeholder="Search matches, events, players, news..."
+            placeholder="Search teams, events, players, news..."
             style={{ flex: 1 }}
             editable={false}
             selectTextOnFocus={false}

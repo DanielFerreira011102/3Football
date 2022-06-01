@@ -82,7 +82,7 @@ const TabNavigator = () => {
       headerShown: false,
       tabBarHideOnKeyboard: true,
       tabBarIcon: ({ focused, color, size }) => {
-        let iconName;
+        let iconName;''
         let material = false;
 
         if (route.name === 'News')
