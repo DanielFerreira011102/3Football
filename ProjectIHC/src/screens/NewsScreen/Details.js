@@ -116,7 +116,7 @@ const Details = ({ route, navigation }) => {
                 <Text
                   style=
                   {{
-                    fontSize: SIZES.font,
+                    fontSize: SIZES.font + 4,
                     fontFamily: FONTS.semiBold,
                     color: COLORS.primary,
                   }}
@@ -133,9 +133,10 @@ const Details = ({ route, navigation }) => {
                   style=
                   {{
                     color: COLORS.secondary,
-                    fontSize: SIZES.small,
+                    fontSize: SIZES.small + 4,
                     fontFamily: FONTS.regular,
-                    lineHeight: SIZES.large,
+                    fontWeight: '500',
+                    lineHeight: SIZES.large + 7,
                   }}
                 >
                   {text}

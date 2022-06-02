@@ -114,6 +114,10 @@ const TabNavigator = () => {
     screenOptions={({ route }) => ({
       headerShown: false,
       tabBarHideOnKeyboard: true,
+      tabBarLabelStyle: {
+        fontSize: 12,
+        fontWeight: '500'
+      },
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;''
         let material = false;

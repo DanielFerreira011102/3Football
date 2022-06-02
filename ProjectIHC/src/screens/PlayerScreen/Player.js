@@ -35,12 +35,25 @@ const Player = ({ navigation }) => {
     { key: 'second', title: 'Career' },
   ]);
 
+  const [heartImage, setHeartImage] = useState(assets.heartol);
+
+  const heartHandler = () => {
+    if (heartImage == assets.heart)
+      setHeartImage(assets.heartol)
+    else setHeartImage(assets.heart)
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{height: 150, backgroundColor: '#4e1e85'}}>
         <View style={{marginLeft: 20, marginTop: 20, backgroundColor: '#000000'}}>
         <CircleButton imgUrl={assets.left}
         handlePress={() => {navigation.goBack()}}/>
+        <CircleButton
+        imgUrl={heartImage}
+        right={15}
+        handlePress={heartHandler}
+      />
       </View>
       </View>
       <TabView

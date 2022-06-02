@@ -370,12 +370,6 @@ const favourites = [
     img: assets.lionel_messi,
   },
   {
-    id: "PLAYER-03",
-    type: 'Player',
-    title: "Bernardo Silva",
-    img: assets.bernardo_silva,
-  },
-  {
     id: "MANAGERS",
     type: 'Title',
     title: "Managers",

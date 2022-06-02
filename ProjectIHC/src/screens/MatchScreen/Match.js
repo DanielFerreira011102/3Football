@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, TouchableHighlight } from "react-native";
+import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet,  TouchableHighlight } from "react-native";
 import { CircleButton } from "../../components";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";

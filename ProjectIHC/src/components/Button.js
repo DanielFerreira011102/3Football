@@ -3,14 +3,14 @@ import { TouchableOpacity, Text, Image } from "react-native";
 
 import { COLORS, SIZES, FONTS, SHADOWS } from "../constants";
 
-export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
+export const CircleButton = ({ imgUrl, handlePress, positionAbs, ...props }) => {
   return (
     <TouchableOpacity
       style={{
         width: 40,
         height: 40,
         backgroundColor: COLORS.white,
-        position: "absolute",
+        position: positionAbs? positionAbs : "absolute",
         borderRadius: SIZES.extraLarge,
         alignItems: "center",
         justifyContent: "center",
