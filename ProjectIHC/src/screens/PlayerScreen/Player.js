@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
-import trofeus from '../../../assets/images/trophy.png';
+//import trofeus from '../../../assets/images/trophy.png';
 
 const ProfileRoute = () => (
   <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }} >
@@ -11,10 +11,10 @@ const ProfileRoute = () => (
   </SafeAreaView>
 );
 
+// <Image source={trofeus} resizeMode={'stretch'} style={{width: '100%', height: '35%', marginLeft: 0}}/>
 
 const CareerRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-     <Image source={trofeus} resizeMode={'stretch'} style={{width: '100%', height: '35%', marginLeft: 0}}/>
      <Text style={{ fontSize: 20, paddingTop: 30, paddingLeft: 10 }}>Atualmente joga na melhor liga do mundo</Text>
   </View>
 );

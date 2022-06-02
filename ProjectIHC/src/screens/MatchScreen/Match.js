@@ -2,16 +2,15 @@ import React, {useState, useRef} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, TouchableHighlight } from "react-native";
 import { CircleButton } from "../../components";
 import { TabView, SceneMap } from 'react-native-tab-view';
-import lineUpTeam1 from '../../../assets/images/lineUpTeam1.png';
-import bola from '../../../assets/images/soccer_ball.png';
-import matchStats from '../../../assets/images/matchStats.jpg';
-import gobackbutton from '../../../assets/images/left.png';
+//import lineUpTeam1 from '../../../assets/images/lineUpTeam1.png';
+//import bola from '../../../assets/images/soccer_ball.png';
+//import matchStats from '../../../assets/images/matchStats.jpg';
+import gobackbutton from '../../../assets/icons/left.png';
 
-
+// <Image source={bola}  style={{width: 40, height: 40, marginLeft: 40, marginRight: 20}}/>
 const Overview = () => (
   <SafeAreaView style={{backgroundColor: '#ffffff'}}>
   <View style={styles.div}>
-    <Image source={bola}  style={{width: 40, height: 40, marginLeft: 40, marginRight: 20}}/>
     <Text style={styles.titleL}>32' Player 7</Text>
   </View>
   <View style={styles.div}>
@@ -30,15 +29,15 @@ const Overview = () => (
   </SafeAreaView>
 );
 
+//     <Image source={lineUpTeam1}  style={{width: '80%', height: '100%', marginLeft: 40, marginRight: 20}}/>
 const Lineup = () => (
   <View style={{flex: 1, backgroundColor: '#ffffff'}}>
-    <Image source={lineUpTeam1}  style={{width: '80%', height: '100%', marginLeft: 40, marginRight: 20}}/>
   </View>
 );
 
+//     <Image source={matchStats} resizeMode={'stretch'} style={{width: '100%', height: '108%', marginLeft: 0}}/>
 const Stats = () => (
   <View style={{ flex: 1, backgroundColor: '#000000'}}>
-    <Image source={matchStats} resizeMode={'stretch'} style={{width: '100%', height: '108%', marginLeft: 0}}/>
   </View>
 );
 

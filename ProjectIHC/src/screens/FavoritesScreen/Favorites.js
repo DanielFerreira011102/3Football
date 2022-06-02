@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, ScrollView, FlatList, SafeAreaView} from 'react-native';
 import { favourites } from '../../constants';
 import { Divider } from 'react-native-paper';
-import { SEARCHCard } from '../../components';
+import { FAVSCard } from '../../components';
 
 
 const Favorites = () => {
@@ -15,7 +15,7 @@ const Favorites = () => {
       </View>
       <View style={{ zIndex: 0, marginBottom: 300 }}>
       <FlatList data={favs} horizontal={false}
-                renderItem={({ item }) => <SEARCHCard data={item} />}
+                renderItem={({ item }) => <FAVSCard data={item} />}
                 keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}/>
       <Divider />

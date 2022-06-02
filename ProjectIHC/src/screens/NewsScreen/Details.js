@@ -91,7 +91,7 @@ const Details = ({ route, navigation }) => {
           paddingBottom: SIZES.extraLarge * 3,
         }}
         ListHeaderComponent={() => (
-          <React.Fragment>
+          <>
             <DetailsHeader data={data} navigation={navigation} heartImg={heartImage} heartHandler={heartHandler} />
             <SubInfo date={data.date}/>
             <View style={{ paddingLeft: SIZES.font, paddingRight: SIZES.font }}>
@@ -139,21 +139,11 @@ const Details = ({ route, navigation }) => {
                   }}
                 >
                   {text}
-                <Text
-                  style=
-                  {{
-                    color: COLORS.primary,
-                    fontSize: SIZES.small,
-                    fontFamily: FONTS.semiBold,
-                  }}
-                  onPress={descHandler}
-                >
-                </Text>
               </Text>
             </View>
           </View>
         </View>
-        </React.Fragment>
+        </>
         )}
       />
     </SafeAreaView>

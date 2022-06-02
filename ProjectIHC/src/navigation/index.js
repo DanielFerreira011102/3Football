@@ -53,10 +53,10 @@ const NewsNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Discover"
+        initialRouteName="DiscoverS"
       >
         <Stack.Screen name="SearchNav" component={SearchNavigator}  />
-        <Stack.Screen name="Discover" component={DiscoverScreen} />
+        <Stack.Screen name="DiscoverS" component={DiscoverScreen} />
         <Stack.Screen name="Details" component={NewsScreen} />
       </Stack.Navigator>
   );
@@ -68,12 +68,30 @@ const SettingsNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="Settings"
+      initialRouteName="SettingsS"
     >
-      <Stack.Screen name="Settings" component={SettingsScreen}  />
+      <Stack.Screen name="SettingsS" component={SettingsScreen}  />
       <Stack.Screen name="SettDetails" component={SettDetails} />
     </Stack.Navigator>
 );
+}
+
+const FavoritesNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="FavoritesS"
+    >
+      <Stack.Screen name="FavoritesS" component={FavoritesScreen}  />
+      <Stack.Screen name="Player" component={PlayerScreen} />
+      <Stack.Screen name="Team" component={TeamScreen}  />
+      <Stack.Screen name="Manager" component={ManagerScreen}  />
+      <Stack.Screen name="Evento" component={EventScreen}  />
+      <Stack.Screen name="Details" component={NewsScreen} />
+    </Stack.Navigator>
+  );
 }
 
 const MacthNavigator = () => {
@@ -100,7 +118,7 @@ const TabNavigator = () => {
         let iconName;''
         let material = false;
 
-        if (route.name === 'News')
+        if (route.name === 'Discover')
         {
           iconName = focused
             ? 'md-search'
@@ -130,11 +148,11 @@ const TabNavigator = () => {
         return <MaterialCommunityIcons name={iconName} size={size + 8} color={color} />;
       },
     })}
-    initialRouteName="News"
+    initialRouteName="Discover"
     >
-      <Tab.Screen name="News" component={NewsNavigator} />
+      <Tab.Screen name="Discover" component={NewsNavigator} />
       <Tab.Screen name="Matches" component={MacthNavigator} />
-      <Tab.Screen name="Favorites" component={FavoritesScreen} />
+      <Tab.Screen name="Favorites" component={FavoritesNavigator} />
       <Tab.Screen name="Settings" component={SettingsNavigator} />
     </Tab.Navigator>
   )

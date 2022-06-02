@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image, Pressable, Text } from "react-native";
 import {useNavigation} from '@react-navigation/native';
-import { SIZES, NEWSData } from "../constants";
+import { COLORS, SIZES, SHADOWS, assets, NEWSData } from "../constants";
 import { Divider } from 'react-native-paper';
 
 const SEARCHCard = ({ data }) => {
@@ -82,22 +82,20 @@ const SEARCHCard = ({ data }) => {
         return (<PTECard handler={() => {navigation.navigate('Evento')}}/>);   
     if (type == "Title") 
         return (
-                <View style={{height: 100}}>
-                    <Divider style={{height: 1}}/>
-                    <Pressable onPress={newsHandler}>
-                    <View
-                        style={{
-                            width: "100%",
-                            padding: SIZES.font,
-                            flexDirection: "row",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                        }}
-                        >
-                        <Text style={{paddingHorizontal: 10, paddingTop: 20, fontSize: 30, fontWeight: 'bold'}}>{title}</Text>
-                    </View>
-                    </Pressable>
+            <View style={{height: 100}}>
+                <Divider style={{height: 1}}/>
+                <View
+                    style={{
+                        width: "100%",
+                        padding: SIZES.font,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                    >
+                    <Text style={{paddingHorizontal: 10, paddingTop: 20, fontSize: 30, fontWeight: 'bold'}}>{title}</Text>
                 </View>
+            </View>
         );
 };
 

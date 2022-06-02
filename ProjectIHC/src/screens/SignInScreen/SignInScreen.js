@@ -34,9 +34,9 @@ const SignInScreen = () => {
 
   function goHome(user) {  
     navigation.navigate('Home', {
-      screen: 'News',
+      screen: 'Discover',
       params: {
-        screen: 'Discover',
+        screen: 'DiscoverS',
         params: {
           user,
         },

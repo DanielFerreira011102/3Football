@@ -13,7 +13,15 @@ const ConfirmEmailScreen = () => {
 
   const onConfirmPressed = data => {
     console.warn(data);
-    navigation.navigate('Home');
+    navigation.navigate('Home', {
+      screen: 'Discover',
+      params: {
+        screen: 'DiscoverS',
+        params: {
+          user,
+        },
+      },}
+    );
   };
 
   const onSignInPress = () => {

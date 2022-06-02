@@ -30,7 +30,7 @@ import bernardo_silva from "../../assets/images/bernardo_silva.jpg";
 import josep_guardiola from "../../assets/images/josep_guardiola.png";
 import premier_league from "../../assets/images/premier_league.png";
 
-import lineUpTeam1 from "../../assets/images/lineUpTeam1.png"
+//import lineUpTeam1 from "../../assets/images/lineUpTeam1.png"
 
 export default {
   heartol,
