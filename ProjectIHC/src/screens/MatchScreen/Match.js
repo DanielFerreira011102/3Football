@@ -2,14 +2,11 @@ import React, {useState, useRef} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, TouchableHighlight } from "react-native";
 import { CircleButton } from "../../components";
 import { TabView, SceneMap } from 'react-native-tab-view';
-//import lineUpTeam1 from '../../../assets/images/lineUpTeam1.png';
-//import bola from '../../../assets/images/soccer_ball.png';
-//import matchStats from '../../../assets/images/matchStats.jpg';
-import gobackbutton from '../../../assets/icons/left.png';
+import { assets } from "../../constants";
 
-// <Image source={bola}  style={{width: 40, height: 40, marginLeft: 40, marginRight: 20}}/>
 const Overview = () => (
   <SafeAreaView style={{backgroundColor: '#ffffff'}}>
+  <Image source={assets.bola}  style={{width: 40, height: 40, marginLeft: 40, marginRight: 20}}/>
   <View style={styles.div}>
     <Text style={styles.titleL}>32' Player 7</Text>
   </View>
@@ -29,15 +26,16 @@ const Overview = () => (
   </SafeAreaView>
 );
 
-//     <Image source={lineUpTeam1}  style={{width: '80%', height: '100%', marginLeft: 40, marginRight: 20}}/>
+
 const Lineup = () => (
   <View style={{flex: 1, backgroundColor: '#ffffff'}}>
+    <Image source={assets.lineUpTeam1}  style={{width: '80%', height: '100%', marginLeft: 40, marginRight: 20}}/>
   </View>
 );
 
-//     <Image source={matchStats} resizeMode={'stretch'} style={{width: '100%', height: '108%', marginLeft: 0}}/>
 const Stats = () => (
   <View style={{ flex: 1, backgroundColor: '#000000'}}>
+    <Image source={assets.matchStats} resizeMode={'stretch'} style={{width: '100%', height: '108%', marginLeft: 0}}/>
   </View>
 );
 
@@ -128,7 +126,7 @@ const Match = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{height: 150, backgroundColor: '#4e1e85'}}>
         <View style={{marginLeft: 20, marginTop: 20, backgroundColor: '#000000'}}>
-        <CircleButton imgUrl={gobackbutton}
+        <CircleButton imgUrl={assets.left}
         handlePress={() => {navigation.goBack()}}/>
         </View>
       </View>

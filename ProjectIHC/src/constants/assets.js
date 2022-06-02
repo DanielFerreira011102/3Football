@@ -30,7 +30,10 @@ import bernardo_silva from "../../assets/images/bernardo_silva.jpg";
 import josep_guardiola from "../../assets/images/josep_guardiola.png";
 import premier_league from "../../assets/images/premier_league.png";
 
-//import lineUpTeam1 from "../../assets/images/lineUpTeam1.png"
+import lineUpTeam1 from "../../assets/images/lineUpTeam1.png"
+import trofeus from "../../assets/images/trophy.png"
+import bola from '../../assets/images/soccer_ball.png';
+import matchStats from '../../assets/images/matchStats.jpg';
 
 export default {
   heartol,
@@ -65,4 +68,8 @@ export default {
   josep_guardiola,
   premier_league,
 
+  lineUpTeam1,
+  trofeus,
+  bola,
+  matchStats,
 };

@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
-//import trofeus from '../../../assets/images/trophy.png';
+import { assets } from "../../constants";
+import { CircleButton } from "../../components";
 
 const ProfileRoute = () => (
   <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }} >
@@ -11,11 +12,11 @@ const ProfileRoute = () => (
   </SafeAreaView>
 );
 
-// <Image source={trofeus} resizeMode={'stretch'} style={{width: '100%', height: '35%', marginLeft: 0}}/>
 
 const CareerRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-     <Text style={{ fontSize: 20, paddingTop: 30, paddingLeft: 10 }}>Atualmente joga na melhor liga do mundo</Text>
+    <Image source={assets.trofeus} resizeMode={'stretch'} style={{width: '100%', height: '35%', marginLeft: 0}}/>
+    <Text style={{ fontSize: 20, paddingTop: 30, paddingLeft: 10 }}>Atualmente joga na melhor liga do mundo</Text>
   </View>
 );
 
@@ -24,7 +25,7 @@ const renderScene = SceneMap({
   second: CareerRoute,
 });
 
-const Player = () => {
+const Player = ({ navigation }) => {
 
   const layout = useWindowDimensions();
 
@@ -36,7 +37,12 @@ const Player = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{height: 200}}></View>
+      <View style={{height: 150, backgroundColor: '#4e1e85'}}>
+        <View style={{marginLeft: 20, marginTop: 20, backgroundColor: '#000000'}}>
+        <CircleButton imgUrl={assets.left}
+        handlePress={() => {navigation.goBack()}}/>
+      </View>
+      </View>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
