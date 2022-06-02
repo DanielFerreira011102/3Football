@@ -434,4 +434,51 @@ const favourites = [
   },
 ]
 
-export { USERData, NEWSData, SEARCHData, MATCHData, favourites};
+const settings_text=[
+  {
+    id: "S-01",
+    type: 'switch',
+    title: "Dark Mode",
+    value: false,
+  },
+  {
+    id: "S-02",
+    type: 'switch',
+    title: "Notifications",
+    value: false,
+  },
+  {
+    id: "MORE-01",
+    type: 'more',
+    title: "Contact Us",
+    description:
+    `email dffdfdf@vdvdfdfd
+    email fdklfnsdklfdsklfmf,dfmd
+    
+    fdlfmdlfdlfdçlfmdmfldmflçdmfldmf`,
+  },
+  {
+    id: "MORE-02",
+    type: 'more',
+    title: "FAQ",
+    description:
+    `email dffdfdf@vdvdfdfd
+    email fdklfnsdklfdsklfmf,dfmd
+    
+    fdlfmdlfdlfdçlfmdmfldmflçdmfldmf`,
+  },
+  {
+    id: "MORE-03",
+    type: 'more',
+    title: "Privacy Policy",
+    description:
+    `email dffdfdf@vdvdfdfd
+    email fdklfnsdklfdsklfmf,dfmd
+    
+    fdlfmdlfdlfdçlfmdmfldmflçdmfldmf`,
+  },
+
+
+]
+
+export { USERData, NEWSData, SEARCHData, MATCHData, favourites, settings_text};

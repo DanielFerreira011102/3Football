@@ -24,6 +24,7 @@ import EventScreen from '../screens/EventScreen';
 import TeamScreen from '../screens/TeamScreen';
 import ManagerScreen from '../screens/ManagerScreen';
 import MatchScreen from '../screens/MatchScreen';
+import SettDetails from '../screens/SettingsDetails'
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,20 @@ const NewsNavigator = () => {
       </Stack.Navigator>
   );
 };
+
+const SettingsNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="Settings"
+    >
+      <Stack.Screen name="Settings" component={SettingsScreen}  />
+      <Stack.Screen name="SettDetails" component={SettDetails} />
+    </Stack.Navigator>
+);
+}
 
 const MacthNavigator = () => {
   return (
@@ -120,7 +135,7 @@ const TabNavigator = () => {
       <Tab.Screen name="News" component={NewsNavigator} />
       <Tab.Screen name="Matches" component={MacthNavigator} />
       <Tab.Screen name="Favorites" component={FavoritesScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Settings" component={SettingsNavigator} />
     </Tab.Navigator>
   )
 }
