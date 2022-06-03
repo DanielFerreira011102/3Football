@@ -117,6 +117,7 @@ const FavoritesNavigator = () => {
       <Stack.Screen name="Manager" component={ManagerScreen}  />
       <Stack.Screen name="Evento" component={EventScreen}  />
       <Stack.Screen name="Details" component={NewsScreen} />
+      <Stack.Screen name="SearchNav" component={SearchNavigator}  />
     </Stack.Navigator>
   );
 }

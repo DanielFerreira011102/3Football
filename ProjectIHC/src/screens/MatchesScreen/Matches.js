@@ -3,10 +3,9 @@ import {React, useState, useRef} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Dimensions, FlatList, ScrollView, Image, TextInput, TouchableOpacity} from 'react-native';
 import CalendarStrip from 'react-native-calendar-strip';
 import { Divider } from 'react-native-paper';
-import { NEWSCard, MATCHCard, HomeHeader, FocusedStatusBar, CircleButton } from "../../components";
+import { NEWSCard, MATCHCard, HomeHeader, FocusedStatusBar} from "../../components";
 import { FONTS, SIZES, COLORS, NEWSData, MATCHData, assets } from "../../constants";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { da } from 'date-fns/locale';
 
 const Matches = () => {
   const navigation = useNavigation();
@@ -77,13 +76,10 @@ const Matches = () => {
                 }}
                 >
                 <View style={{height: 60}}>
-                    <CircleButton
-                    imgUrl={assets.left}
-                    handlePress={() => {
-                    navigation.goBack()}}
-                    top={10}
-                    />
-                    <Text style={{marginLeft: 65, marginTop: 15, color: "white", fontSize: 20}}>Learn about the world of football</Text>
+                    <View style={{flexDirection: 'row'}}>
+                    <Text style={{marginLeft: 0, marginTop: 8, color: "white", fontSize: 30, fontWeight: '800'}}>Football</Text>
+                    <Text style={{marginLeft: 5, marginTop: 12, color: "white", fontSize: 26}}>Fixtures</Text>
+                    </View>
                 </View>
                 <View
                     style={{
@@ -123,7 +119,7 @@ const Matches = () => {
       </View>
       <View>
         <View>
-         <TouchableOpacity style={{width: 28, height: 28, position: 'absolute', left: 98, bottom: 64, zIndex: 55}} onPress={showDatePicker}>
+         <TouchableOpacity style={{width: 28, height: 28, position: 'absolute', right: 15, bottom: 64, zIndex: 55}} onPress={showDatePicker}>
           <Image
           source={assets.calendar}
           resizeMode="contain"
@@ -151,7 +147,7 @@ const Matches = () => {
           onDateSelected={onSelect}
           highlightDateNumberStyle={{color: '#4287f5', fontSize: 24}}
           highlightDateNameStyle={{color: '#4287f5', fontSize: 16}}
-          calendarHeaderStyle={{color: 'white', fontSize: 20, paddingLeft: 35}}
+          calendarHeaderStyle={{color: 'white', fontSize: 20}}
           dateNumberStyle={{color: 'white', fontSize: 20}}
           dateNameStyle={{color: 'white', fontSize: 12}}
           iconContainer={{flex: 0.1}}

@@ -3,7 +3,7 @@ import { View, Image, Pressable, Text } from "react-native";
 import {useNavigation} from '@react-navigation/native';
 import { COLORS, SIZES, SHADOWS, assets, NEWSData } from "../constants";
 import { Divider } from 'react-native-paper';
-import { CircleButton } from "../components";
+import {  CircleButton } from "../components";
 
 const SEARCHCard = ({ data }) => {
     
@@ -18,7 +18,7 @@ const SEARCHCard = ({ data }) => {
         navigation.navigate("Details", { data })
     }
 
-    const [heartImage, setHeartImage] = useState(assets.heartol);
+    const [heartImage, setHeartImage] = useState(assets.heart);
 
     const heartHandler = () => {
       if (heartImage == assets.heart)

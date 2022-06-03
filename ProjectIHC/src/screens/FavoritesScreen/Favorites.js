@@ -1,19 +1,41 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, FlatList, SafeAreaView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, FlatList, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import { favourites } from '../../constants';
 import { Divider } from 'react-native-paper';
-import { FAVSCard } from '../../components';
-
+import { FAVSCard, FocusedStatusBar, CircleButton } from '../../components';
+import { COLORS, SIZES, assets} from "../../constants";
+import { useNavigation } from '@react-navigation/native';
 
 const Favorites = () => {
   const favs = favourites;
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
-      <View style={styles.root}>
-        <Text style={styles.title} >Favorites</Text>
-      </View>
-      <View style={{ zIndex: 0, marginBottom: 300 }}>
+      <FocusedStatusBar backgroundColor={COLORS.primary} />
+      <View style={{
+                backgroundColor: COLORS.primary,
+                padding: SIZES.font,
+                }}
+                >
+                <View style={{height: 60}}>
+                    <View style={{flexDirection: 'row'}}>
+                    <Text style={{marginLeft: 0, marginTop: 8, color: "white", fontSize: 30, fontWeight: '800'}}>Your</Text>
+                    <Text style={{marginLeft: 5, marginTop: 12, color: "white", fontSize: 26}}>Favorites</Text>
+                    <TouchableOpacity onPress={() => {navigation.navigate('SearchNav')}} style={{position: 'absolute', right: 10, top: 10}}>
+                      <View style={{width: 120, height: 40, borderRadius: 20, backgroundColor: 'white', flexDirection: 'row',  justifyContent: 'space-evenly', alignItems: 'center'}}>
+                      <Image
+                        source={assets.plus}
+                        resizeMode="contain"
+                        style={{ width: 24, height: 24 }}
+                      />
+                      <Text style={{fontSize: 22}}>ADD</Text>
+                      </View>
+                    </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+      <View style={{ zIndex: 0}}>
       <FlatList data={favs} horizontal={false}
                 renderItem={({ item }) => <FAVSCard data={item} />}
                 keyExtractor={(item) => item.id}
