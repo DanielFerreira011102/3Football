@@ -37,9 +37,9 @@ const Search = ({ navigation }) => {
                     handlePress={() => {
                         lastNameRef.current.blur()
                         navigation.goBack()}}
-                    top={StatusBar.currentHeight - 15}
+                    top={10}
                     />
-                    <Text style={{marginLeft: 65, marginTop: StatusBar.currentHeight - 10, color: "white", fontSize: 20}}>Learn about the world of football</Text>
+                    <Text style={{marginLeft: 65, marginTop: 15, color: "white", fontSize: 20}}>Learn about the world of football</Text>
                 </View>
                 <View
                     style={{

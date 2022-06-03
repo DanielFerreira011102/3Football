@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Image, Pressable, Text } from "react-native";
 import {useNavigation} from '@react-navigation/native';
 import { COLORS, SIZES, SHADOWS, assets, NEWSData } from "../constants";
 import { Divider } from 'react-native-paper';
+import { CircleButton } from "../components";
 
 const SEARCHCard = ({ data }) => {
     
@@ -16,6 +17,14 @@ const SEARCHCard = ({ data }) => {
         const data = NEWSData.find(News => News.id === id);
         navigation.navigate("Details", { data })
     }
+
+    const [heartImage, setHeartImage] = useState(assets.heartol);
+
+    const heartHandler = () => {
+      if (heartImage == assets.heart)
+        setHeartImage(assets.heartol)
+      else setHeartImage(assets.heart)
+    }
     
     const PTECard = ({ handler }) => {
         return (
@@ -28,7 +37,7 @@ const SEARCHCard = ({ data }) => {
                             height: "100%",
                             paddingHorizontal: SIZES.font,
                             flexDirection: "row",
-                            justifyContent: "space-between",
+                            justifyContent: "flex-start",
                             alignItems: "center",
                         }}
                         >
@@ -44,7 +53,12 @@ const SEARCHCard = ({ data }) => {
                             />
                             <Text>{type}</Text>
                         </View>
-                        <Text>{title}</Text>    
+                        <Text style={{marginLeft: 40}}>{title}</Text>
+                        <CircleButton
+                        imgUrl={heartImage}
+                        right={15}
+                        handlePress={heartHandler}
+                        />        
                     </View>
                 </Pressable>
             </View>

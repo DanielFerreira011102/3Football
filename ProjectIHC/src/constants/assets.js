@@ -35,6 +35,8 @@ import trofeus from "../../assets/images/trophy.png"
 import bola from '../../assets/images/soccer_ball.png';
 import matchStats from '../../assets/images/matchStats.jpg';
 
+import calendar from '../../assets/images/calendar_icon.png';
+
 export default {
   heartol,
   heart,
@@ -72,4 +74,6 @@ export default {
   trofeus,
   bola,
   matchStats,
+
+  calendar,
 };

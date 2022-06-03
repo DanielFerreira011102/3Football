@@ -44,7 +44,7 @@ const Details = ({ route, navigation }) => {
   }
 
 
-  const [text, setText] = useState(shorten(data.description, 160) + "...");
+  const [text, setText] = useState(shorten(data.description, 200) + "...");
   const [readMore, setReadMore] = useState(false);
   const [buttonText, setButtonText] = useState('Read more');
 
@@ -54,7 +54,7 @@ const Details = ({ route, navigation }) => {
       setReadMore(true);
       setButtonText(' Read less')
     } else {
-      setText(shorten(data.description, 160) + "...");
+      setText(shorten(data.description, 200) + "...");
       setReadMore(false);
       setButtonText('Read more')
   }

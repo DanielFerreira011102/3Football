@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import StartScreen from '../screens/StartScreen';
 import SignInScreen from '../screens/SignInScreen';
@@ -32,9 +33,16 @@ const Tab = createBottomTabNavigator();
 
 const SearchNavigator = () => {
   return (
+    <SafeAreaProvider>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+          safeAreaInsets: {
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+          },
         }}
         initialRouteName="Search"
       >
@@ -44,6 +52,7 @@ const SearchNavigator = () => {
         <Stack.Screen name="Manager" component={ManagerScreen}  />
         <Stack.Screen name="Evento" component={EventScreen}  />
       </Stack.Navigator>
+      </SafeAreaProvider>
   );
 };
 
@@ -52,12 +61,18 @@ const NewsNavigator = () => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+          safeAreaInsets: {
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+          },
         }}
         initialRouteName="DiscoverS"
       >
-        <Stack.Screen name="SearchNav" component={SearchNavigator}  />
         <Stack.Screen name="DiscoverS" component={DiscoverScreen} />
         <Stack.Screen name="Details" component={NewsScreen} />
+        <Stack.Screen name="SearchNav" component={SearchNavigator}  />
       </Stack.Navigator>
   );
 };
@@ -67,6 +82,12 @@ const SettingsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        safeAreaInsets: {
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+        },
       }}
       initialRouteName="SettingsS"
     >
@@ -81,6 +102,12 @@ const FavoritesNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        safeAreaInsets: {
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+        },
       }}
       initialRouteName="FavoritesS"
     >
@@ -99,6 +126,12 @@ const MacthNavigator = () => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+          safeAreaInsets: {
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+          },
         }}
         initialRouteName="MatchGroup"
       >
@@ -114,6 +147,12 @@ const TabNavigator = () => {
     screenOptions={({ route }) => ({
       headerShown: false,
       tabBarHideOnKeyboard: true,
+      safeAreaInsets: {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
       tabBarLabelStyle: {
         fontSize: 12,
         fontWeight: '500'
