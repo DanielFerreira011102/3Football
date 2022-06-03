@@ -77,7 +77,7 @@ const Matches = () => {
                 >
                 <View style={{height: 60}}>
                     <View style={{flexDirection: 'row'}}>
-                    <Text style={{marginLeft: 0, marginTop: 8, color: "white", fontSize: 30, fontWeight: '800'}}>Football</Text>
+                    <Text style={{marginLeft: 5, marginTop: 8, color: "white", fontSize: 30, fontWeight: '800'}}>Football</Text>
                     <Text style={{marginLeft: 5, marginTop: 12, color: "white", fontSize: 26}}>Fixtures</Text>
                     </View>
                 </View>

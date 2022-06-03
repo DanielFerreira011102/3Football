@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
-import { assets } from "../../constants";
+import { assets, COLORS } from "../../constants";
 import { CircleButton } from "../../components";
 
 const ProfileRoute = () => (
@@ -45,7 +45,7 @@ const Player = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{height: 150, backgroundColor: '#4e1e85'}}>
+      <View style={{height: 170, backgroundColor: COLORS.primary}}>
         <View style={{marginLeft: 20, marginTop: 20, backgroundColor: '#000000'}}>
         <CircleButton imgUrl={assets.left}
         handlePress={() => {navigation.goBack()}}/>

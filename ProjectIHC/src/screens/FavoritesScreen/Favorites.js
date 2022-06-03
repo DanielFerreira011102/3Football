@@ -20,7 +20,7 @@ const Favorites = () => {
                 >
                 <View style={{height: 60}}>
                     <View style={{flexDirection: 'row'}}>
-                    <Text style={{marginLeft: 0, marginTop: 8, color: "white", fontSize: 30, fontWeight: '800'}}>Your</Text>
+                    <Text style={{marginLeft: 5, marginTop: 8, color: "white", fontSize: 30, fontWeight: '800'}}>Your</Text>
                     <Text style={{marginLeft: 5, marginTop: 12, color: "white", fontSize: 26}}>Favorites</Text>
                     <TouchableOpacity onPress={() => {navigation.navigate('SearchNav')}} style={{position: 'absolute', right: 10, top: 10}}>
                       <View style={{width: 120, height: 40, borderRadius: 20, backgroundColor: 'white', flexDirection: 'row',  justifyContent: 'space-evenly', alignItems: 'center'}}>
