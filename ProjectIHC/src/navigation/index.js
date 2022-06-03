@@ -177,8 +177,8 @@ const TabNavigator = () => {
         else if (route.name === 'Favorites')
         {
           iconName = focused
-            ? 'ios-star'
-            : 'ios-star-outline';
+            ? 'ios-heart'
+            : 'ios-heart-outline';
         }
         else
         {
