@@ -119,7 +119,7 @@ const Matches = () => {
       </View>
       <View>
         <View>
-         <TouchableOpacity style={{width: 28, height: 28, position: 'absolute', right: 15, bottom: 64, zIndex: 55}} onPress={showDatePicker}>
+         <TouchableOpacity style={{width: 28, height: 28, position: 'absolute', right: 5, bottom: 64, zIndex: 55}} onPress={showDatePicker}>
           <Image
           source={assets.calendar}
           resizeMode="contain"

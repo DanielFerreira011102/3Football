@@ -5,6 +5,8 @@ import MATCHCard from "./MATCHCard";
 import SETTINGSCard from "./SETTINGSCard";
 import FAVSCard from './FAVSCard'
 import FootballField from './FootballField'
+import MatchHeader from './MatchHeader'
+import PlayerHeader from './PlayerHeader'
 import { RectButton, CircleButton } from "./Button";
 import { SubInfo, People, EndDate, NEWSTitle } from "./SubInfo";
 import FocusedStatusBar from "./FocusedStatusBar";
@@ -24,4 +26,6 @@ export {
   SETTINGSCard,
   FAVSCard,
   FootballField,
+  MatchHeader,
+  PlayerHeader,
 };

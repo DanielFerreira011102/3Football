@@ -3,6 +3,8 @@ import heartol from "../../assets/icons/heart-ol.png";
 import left from "../../assets/icons/left.png";
 import search from "../../assets/icons/search.png";
 import plus from "../../assets/icons/plus.png";
+import bell from "../../assets/icons/bell.png";
+import bellol from "../../assets/icons/bell-ol.png";
 
 import logo from "../../assets/images/app_name.png";
 import news1 from "../../assets/images/news1.jpg";
@@ -89,4 +91,7 @@ export default {
   sub,
 
   plus,
+
+  bell,
+  bellol
 };

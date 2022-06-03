@@ -3,7 +3,7 @@ import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, Style
 import { CircleButton } from "../../components";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";
-import { FootballField } from '../../components';
+import { FootballField, MatchHeader } from '../../components';
 import {home, away, COLORS} from '../../constants'
 
 const Overview = () => (
@@ -126,12 +126,7 @@ const Match = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{height: 170, backgroundColor: COLORS.primary}}>
-        <View style={{marginLeft: 20, marginTop: 20, backgroundColor: '#000000'}}>
-        <CircleButton imgUrl={assets.left}
-        handlePress={() => {navigation.goBack()}}/>
-        </View>
-      </View>
+      <MatchHeader navigation={navigation}/>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
