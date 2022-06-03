@@ -3,6 +3,8 @@ import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, Style
 import { CircleButton } from "../../components";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";
+import { FootballField } from '../../components';
+import {home, away} from '../../constants'
 
 const Overview = () => (
   <SafeAreaView style={{backgroundColor: '#ffffff'}}>
@@ -29,7 +31,7 @@ const Overview = () => (
 
 const Lineup = () => (
   <View style={{flex: 1, backgroundColor: '#ffffff'}}>
-    <Image source={assets.lineUpTeam1}  style={{width: '80%', height: '100%', marginLeft: 40, marginRight: 20}}/>
+     <FootballField home={home} away={away} />
   </View>
 );
 

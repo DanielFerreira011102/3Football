@@ -37,6 +37,11 @@ import matchStats from '../../assets/images/matchStats.jpg';
 
 import calendar from '../../assets/images/calendar_icon.png';
 
+import cardred from '../../assets/images/card-red.png';
+import cardyellow from '../../assets/images/card-yellow.png';
+import ffield from '../../assets/images/footballfield.png';
+import sub from '../../assets/images/refresh.png';
+
 export default {
   heartol,
   heart,
@@ -76,4 +81,9 @@ export default {
   matchStats,
 
   calendar,
+
+  cardred,
+  cardyellow,
+  ffield,
+  sub,
 };
