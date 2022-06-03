@@ -6,6 +6,7 @@ import { Divider } from 'react-native-paper';
 import { NEWSCard, MATCHCard, HomeHeader, FocusedStatusBar, CircleButton } from "../../components";
 import { FONTS, SIZES, COLORS, NEWSData, MATCHData, assets } from "../../constants";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { da } from 'date-fns/locale';
 
 const Matches = () => {
   const navigation = useNavigation();
@@ -17,9 +18,11 @@ const Matches = () => {
 
   const mData = MATCHData.find(m => m.id == strtdy).matches;
   const [matchData, setMatchData] = useState(mData);
+  const [curDate, setCurDate] = useState(today);
 
   const onSelect = selectedDate => {
     const date = selectedDate.toDate();
+    setCurDate(date)
     const strdate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
     setMatchData(MATCHData.find(m => m.id === strdate)?.matches)
   }
@@ -62,6 +65,7 @@ const Matches = () => {
     const strdate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
     setMatchData(MATCHData.find(m => m.id === strdate)?.matches)
     hideDatePicker();
+    setCurDate(date)
   }
 
   return (
@@ -131,6 +135,7 @@ const Matches = () => {
             mode="date"
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
+            date={curDate}
           />
         <CalendarStrip
           scrollable
@@ -142,7 +147,7 @@ const Matches = () => {
           }}
           calendarColor={'#001F2D'}
           startingDate={addDays(new Date(), -3)}
-          selectedDate={new Date()}
+          selectedDate={curDate}
           onDateSelected={onSelect}
           highlightDateNumberStyle={{color: '#4287f5', fontSize: 24}}
           highlightDateNameStyle={{color: '#4287f5', fontSize: 16}}
