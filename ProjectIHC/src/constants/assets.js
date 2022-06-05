@@ -33,9 +33,9 @@ import bernardo_silva from "../../assets/images/bernardo_silva.jpg";
 import josep_guardiola from "../../assets/images/josep_guardiola.png";
 import premier_league from "../../assets/images/premier_league.png";
 
+import bola from "../../assets/images/soccer_ball.png"
 import lineUpTeam1 from "../../assets/images/lineUpTeam1.png"
 import trofeus from "../../assets/images/trophy.png"
-import bola from '../../assets/images/soccer_ball.png';
 import matchStats from '../../assets/images/matchStats.jpg';
 
 import calendar from '../../assets/images/calendar_icon.png';
@@ -44,6 +44,15 @@ import cardred from '../../assets/images/card-red.png';
 import cardyellow from '../../assets/images/card-yellow.png';
 import ffield from '../../assets/images/footballfield.png';
 import sub from '../../assets/images/refresh.png';
+import subs from '../../assets/images/subs.jpg'
+import subinr from '../../assets/images/subin.jpg'
+import suboutr from '../../assets/images/subout.jpg'
+import subinl from '../../assets/images/subinl.jpg'
+import suboutl from '../../assets/images/suboutl.jpg'
+import assist from '../../assets/images/assist.png';
+
+import red from '../../assets/images/red.png';
+import livehead from '../../assets/images/livehead.png'
 
 export default {
   heartol,
@@ -89,9 +98,18 @@ export default {
   cardyellow,
   ffield,
   sub,
+  subinr,
+  suboutr,
+  subinl,
+  suboutl,
 
   plus,
 
   bell,
-  bellol
+  bellol,
+
+  subs,
+  assist,
+  red,
+  livehead,
 };

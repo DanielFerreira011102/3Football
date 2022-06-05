@@ -110,7 +110,7 @@ const Matches = () => {
         <View style={{ zIndex: 0 }}>
           <FlatList
               data={matchData}
-              renderItem={({ item }) => <MATCHCard data={item} />}
+              renderItem={({ item }) => <MATCHCard data={item} date={curDate} />}
               keyExtractor={(item) => item.id}
               showsVerticalScrollIndicator={false} /><Divider />
         </View>

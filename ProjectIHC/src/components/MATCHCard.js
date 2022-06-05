@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import { COLORS, SIZES, SHADOWS, assets, NEWSData } from "../constants";
 import { Divider } from 'react-native-paper';
 
-const MATCHCard = ({ data }) => {
+const MATCHCard = ({ data, date }) => {
 
     const id = data.id;
     const team1 = data.team1;
@@ -31,7 +31,7 @@ const MATCHCard = ({ data }) => {
                     {status != "NS"? <Text style={{fontSize: 25}}>{team1score} - {team2score}</Text>: <Text style={{fontSize: 25}}>{time}</Text>}
                     {aggr != undefined? <Text style={{color: "#525252"}}>{aggr}</Text> : null} 
                     <View style={{flexDirection: 'row', alignItems: 'center', marginRight: 10}}>
-                        {status == "LIVE"? <><Image source={require('../../assets/images/red.png')} style={{height: 7, width: 7, marginRight: 5}}></Image><Text style={{color: 'red'}}>{status}</Text></> : null}
+                        {status == "LIVE"? <><Image source={require('../../assets/images/red.png')} style={{height: 7, width: 7, marginRight: 5}}></Image><Text style={{color: 'red'}}>{status}    {time}'</Text></> : null}
                     </View>
                     {status == "FT"? <Text style={{color: "#525252"}}>{status}</Text> : null}
             </View>
@@ -42,7 +42,7 @@ const MATCHCard = ({ data }) => {
         return (
             <View style={{height: 120}}>
                 <Divider style={{height: 1}}/>
-                <Pressable onPress={() => {navigation.navigate("Match")}}>
+                <Pressable onPress={() => {navigation.navigate("Match", { data, date })}}>
                     <View
                         style={{
                             width: "100%",

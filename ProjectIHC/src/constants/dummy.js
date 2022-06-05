@@ -269,7 +269,7 @@ const MATCHData = [
         score: 1,
       },
       status: "LIVE",
-      time: 33,
+      time: 74,
       event: "UEFA Champions League",
       phase: "Quarter-finals",
       aggr: '(' + 4 + " - " + 2 + ')',
