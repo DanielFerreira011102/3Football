@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 import { assets }  from '../constants'
-
+import { AntDesign } from '@expo/vector-icons'; 
 
 const LiveBranch = ({time, what, player1, player2, side}) => {
 
@@ -9,15 +9,15 @@ const LiveBranch = ({time, what, player1, player2, side}) => {
 
         if (side == "left")
             return (
-                <View style={{flexDirection: 'column', borderRightWidth: 2, borderRightColor: '#C0C0C0', alignItems: 'center', justifyContent: 'center', paddingRight: 8}}>
-                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><Text>{player1}</Text><Image style={{width: 12, height: 12, marginLeft: 5}} source={assets.subinl}></Image></> : <Text>{player1}</Text>}</View>
-                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><Text>{player2}</Text><Image style={{width: 12, height: 12, marginLeft: 5}} source={assets.suboutl}></Image></> : player2 != undefined? <><Text style={{color: '#899499'}}>{player2}</Text><Image style={{marginLeft: 5}} source={assets.assist}></Image></> : null}</View>
+                <View style={{flexDirection: 'column', borderRightWidth: 2, borderRightColor: '#C0C0C0', alignItems: 'flex-end', justifyContent: 'center', paddingRight: 8}}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><Text>{player1}</Text><AntDesign name="arrowright" style={{marginLeft: 5}} size={16} color="green" /></> : <Text>{player1}</Text>}</View>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><Text>{player2}</Text><AntDesign name="arrowleft" style={{marginLeft: 5}} size={16} color="red" /></> : player2 != undefined? <><Text style={{color: '#899499'}}>{player2}</Text><Image style={{marginLeft: 5}} source={assets.assist}></Image></> : null}</View>
                 </View>
             )
         else return (
-            <View style={{flexDirection: 'column', borderLeftWidth: 2, borderLeftColor: '#C0C0C0', alignItems: 'center', justifyContent: 'center', paddingLeft: 8}}>
-                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><Image style={{width: 12, height: 12, marginRight: 5,}} source={assets.subinr}></Image><Text>{player1}</Text></> : <Text>{player1}</Text>}</View>
-                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><Image style={{width: 12, height: 12, marginRight: 5}} source={assets.suboutr}></Image><Text>{player2}</Text></> : player2 != undefined? <><Image style={{marginRight: 5}} source={assets.assist}></Image><Text style={{color: '#899499'}}>{player2}</Text></> : null}</View>
+            <View style={{flexDirection: 'column', borderLeftWidth: 2, borderLeftColor: '#C0C0C0', alignItems: 'flex-start', justifyContent: 'center', paddingLeft: 8}}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><AntDesign name="arrowleft" style={{marginRight: 5}} size={16} color="green" /><Text>{player1}</Text></> : <Text>{player1}</Text>}</View>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}} >{what == "sub"? <><AntDesign name="arrowright" style={{marginRight: 5}} size={16} color="red" /><Text>{player2}</Text></> : player2 != undefined? <><Image style={{marginRight: 5}} source={assets.assist}></Image><Text style={{color: '#899499'}}>{player2}</Text></> : null}</View>
             </View>
         )
     }
@@ -34,7 +34,7 @@ const LiveBranch = ({time, what, player1, player2, side}) => {
     if (what == "sub") {
         colora = '#32CD32'
         img = assets.subs
-        pad = 8
+        pad = 10
     }
     else if (what == "goal") {
         if (player2 != undefined)

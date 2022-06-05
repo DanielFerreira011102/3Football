@@ -8,7 +8,7 @@ import {home, away, COLORS} from '../../constants'
 const Overview = ({data}) => (
   <ScrollView style={{backgroundColor: 'white'}}>
     { data.status == "LIVE"?
-    <><View style={{marginVertical: 15, justifyContent: 'center', alignItems: 'center',}}>
+    <><View style={{marginTop: 15, justifyContent: 'center', alignItems: 'center',}}>
         <Text style={{backgroundColor: 'white', color: 'red', paddingHorizontal: 5, marginBottom: -10, borderRadius: 3}}>{data.time}'</Text>
         <Image source={assets.livehead} style={{}}></Image>
         <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
