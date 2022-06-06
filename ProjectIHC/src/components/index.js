@@ -10,6 +10,7 @@ import PlayerHeader from './PlayerHeader'
 import PercentageRing from "./PercentageRing";
 import PercentageBlock from "./PercentageBlock";
 import LiveBranch from "./LiveBranch";
+import BROADCASTCard from "./BROADCASTCard";
 import { RectButton, CircleButton } from "./Button";
 import { SubInfo, People, EndDate, NEWSTitle } from "./SubInfo";
 import FocusedStatusBar from "./FocusedStatusBar";
@@ -34,4 +35,5 @@ export {
   MatchHeader,
   PlayerHeader,
   LiveBranch,
+  BROADCASTCard,
 };

@@ -2,12 +2,11 @@ import React, {useState, useRef} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, Button, Pressable} from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";
-import { FootballField, MatchHeader, PercentageRing, PercentageBlock, LiveBranch } from '../../components';
+import { FootballField, MatchHeader, PercentageRing, PercentageBlock, LiveBranch, BROADCASTCard } from '../../components';
 import {home, away, COLORS} from '../../constants';
 import { Divider } from 'react-native-paper';
 import Modal from 'expo-react-native-modalbox';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import * as Linking from 'expo-linking';
 import { Dimensions } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -39,41 +38,9 @@ const Overview = ({data}) => {
       <Pressable style={{right: 15, top: 15, position: 'absolute'}} onPress={() => {setisOpen(false)}}><Image source={assets.close} style={{width: 40, height: 40}}></Image></Pressable>
       <View style={{flexDirection: 'row', left: 10, top: 25, position: 'absolute'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
       <View style={{marginTop: 60}}>
-        <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10}}/>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
-            <Image source={assets.ptcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
-            <Text style={{marginTop: 10}}>PORTUGAL</Text>
-          </View>
-          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP 1</Text><Text>{'>'}</Text></Pressable>
-            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/play/direto/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP Play</Text><Text>{'>'}</Text></Pressable>
-            <Pressable onPress={() => Linking.openURL("https://www.sporttv.pt/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>SPORT TV1</Text><Text>{'>'}</Text></Pressable>
-          </View>
-        </View>
-        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
-            <Image source={assets.engcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
-            <Text style={{marginTop: 10}}>ENGLAND</Text>
-          </View>
-          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-          <Pressable onPress={() => Linking.openURL("https://www.skysports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>Sky Sports 1</Text><Text>{'>'}</Text></Pressable>
-          <Pressable onPress={() => Linking.openURL("https://www.espn.co.uk/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN UK</Text><Text>{'>'}</Text></Pressable>
-          </View>
-        </View>
-        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
-            <Image source={assets.uscircle} style={{width: 130, height: 130, borderColor: '#f2efee', borderWidth: 7, borderRadius: 65}}></Image>
-            <Text style={{marginTop: 10}}>USA</Text>
-          </View>
-          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-          <Pressable onPress={() => Linking.openURL("https://www.beinsports.com/site-locator")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>beIN Sport 1</Text><Text>{'>'}</Text></Pressable>
-          <Pressable onPress={() => Linking.openURL("https://www.espnplayer.com/packages")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN 3</Text><Text>{'>'}</Text></Pressable>
-          <Pressable onPress={() => Linking.openURL("https://www.nbcsports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>NBCSN</Text><Text>{'>'}</Text></Pressable>
-          </View>
-        </View>
+        <BROADCASTCard isFirst={true} img={assets.ptcircle} country={"PORTUGAL"} channels={[{link: 'https://www.rtp.pt/rtp1', name: 'RTP1'}, {link: 'https://www.rtp.pt/play/direto/rtp1', name: 'RTP Play'}, {link: 'https://www.sporttv.pt/', name: 'SPORT TV1'}]}/>
+        <BROADCASTCard img={assets.engcircle} country={"ENGLAND"} channels={[{link: 'https://www.skysports.com/', name: 'Sky Sports 1'}, {link: 'https://www.espn.co.uk/', name: 'ESPN UK'}]}/>
+        <BROADCASTCard isLast={true} img={assets.uscircle} country={"USA"} channels={[{link: 'https://www.beinsports.com/site-locator', name: 'beIN Sport 1'}, {link: 'https://www.espnplayer.com/packages', name: 'ESPN 3'}, {link: 'https://www.nbcsports.com/', name: 'NBCSN'}]}/>
       </View>
     </Modal>
     <Pressable style={{height: 50, backgroundColor: '#36454F', borderBottomEndRadius: 12, borderBottomStartRadius: 12, alignItems: 'center', justifyContent: 'center'}} onPress={handleOpen}>
@@ -83,55 +50,55 @@ const Overview = ({data}) => {
         <Text style={{backgroundColor: 'white', color: 'red', paddingHorizontal: 5, marginBottom: -10, borderRadius: 3}}>{data.time}'</Text>
         <Image source={assets.livehead} style={{}}></Image>
         <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
-      </View>
+    </View>
     <LiveBranch what={"sub"} player1={"José Matis"} player2={"Lola Lilo"} time={73} side={"left"}/>
     <LiveBranch what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={53} side={"left"}/>
-    <LiveBranch what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={42} side={"left"}/>
+    <View style={{marginVertical: 30, justifyContent: 'center', alignItems: 'center',}}>
+        <Image source={assets.halftime} style={{}}></Image>
+    </View>
+    <LiveBranch makeTop={true} what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={42} side={"left"}/>
     <LiveBranch what={"sub"} player1={"José Matis"} player2={"Lola Lilo"} time={32} side={"right"}/>
     <LiveBranch what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={28} side={"right"}/>
     <LiveBranch what={"yellow"} player1={"José Matis"} time={27} side={"right"}/>
     <LiveBranch what={"red"} player1={"José Matis"} time={16} side={"left"}/>
-    <LiveBranch what={"goal"} player1={"José Matis"} time={8} side={"right"}/></>
-    : <>
+    <LiveBranch what={"goal"} player1={"José Matis"} time={8} side={"right"}/>
+    <View style={{marginBottom: 15, justifyContent: 'center', alignItems: 'center',}}>
+        <Image source={assets.kickoff} style={{marginTop: 10}}></Image>
+        <View style={{position: 'absolute', bottom: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
+    </View>
+    
+    </>
+    : data.status == "NS"?
+    <>
     <View style={{flexDirection: 'row', left: 10, top: 20, position: 'absolute'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
       <View style={{marginTop: 60}}>
-        <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10}}/>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
-            <Image source={assets.ptcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
-            <Text style={{marginTop: 10}}>PORTUGAL</Text>
-          </View>
-          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP 1</Text><Text>{'>'}</Text></Pressable>
-            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/play/direto/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP Play</Text><Text>{'>'}</Text></Pressable>
-            <Pressable onPress={() => Linking.openURL("https://www.sporttv.pt/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>SPORT TV1</Text><Text>{'>'}</Text></Pressable>
-          </View>
-        </View>
-        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
-            <Image source={assets.engcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
-            <Text style={{marginTop: 10}}>ENGLAND</Text>
-          </View>
-          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-          <Pressable onPress={() => Linking.openURL("https://www.skysports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>Sky Sports 1</Text><Text>{'>'}</Text></Pressable>
-          <Pressable onPress={() => Linking.openURL("https://www.espn.co.uk/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN UK</Text><Text>{'>'}</Text></Pressable>
-          </View>
-        </View>
-        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
-        <View style={{flexDirection: 'row', marginBottom: 20}}>
-          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
-            <Image source={assets.uscircle} style={{width: 130, height: 130, borderColor: '#f2efee', borderWidth: 7, borderRadius: 65}}></Image>
-            <Text style={{marginTop: 10}}>USA</Text>
-          </View>
-          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-          <Pressable onPress={() => Linking.openURL("https://www.beinsports.com/site-locator")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>beIN Sport 1</Text><Text>{'>'}</Text></Pressable>
-          <Pressable onPress={() => Linking.openURL("https://www.espnplayer.com/packages")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN 3</Text><Text>{'>'}</Text></Pressable>
-          <Pressable onPress={() => Linking.openURL("https://www.nbcsports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>NBCSN</Text><Text>{'>'}</Text></Pressable>
-          </View>
-        </View>
+        <BROADCASTCard isFirst={true} img={assets.ptcircle} country={"PORTUGAL"} channels={[{link: 'https://www.rtp.pt/rtp1', name: 'RTP1'}, {link: 'https://www.rtp.pt/play/direto/rtp1', name: 'RTP Play'}, {link: 'https://www.sporttv.pt/', name: 'SPORT TV1'}]}/>
+        <BROADCASTCard img={assets.engcircle} country={"ENGLAND"} channels={[{link: 'https://www.skysports.com/', name: 'Sky Sports 1'}, {link: 'https://www.espn.co.uk/', name: 'ESPN UK'}]}/>
+        <BROADCASTCard isLast={true} img={assets.uscircle} country={"USA"} channels={[{link: 'https://www.beinsports.com/site-locator', name: 'beIN Sport 1'}, {link: 'https://www.espnplayer.com/packages', name: 'ESPN 3'}, {link: 'https://www.nbcsports.com/', name: 'NBCSN'}]}/>
       </View>
-      </> 
+      </>
+      :
+      <>
+      <View style={{marginTop: 15, justifyContent: 'center', alignItems: 'center',}}>
+        <Image source={assets.endtime} style={{marginBottom: 10}}></Image>
+        <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
+      </View>
+      <LiveBranch what={"sub"} player1={"José Matis"} player2={"Lola Lilo"} time={73} side={"left"}/>
+      <LiveBranch what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={53} side={"left"}/>
+      <View style={{marginVertical: 30, justifyContent: 'center', alignItems: 'center',}}>
+        <Image source={assets.halftime} style={{}}></Image>
+      </View>
+      <LiveBranch makeTop={true} what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={42} side={"left"}/>
+      <LiveBranch what={"sub"} player1={"José Matis"} player2={"Lola Lilo"} time={32} side={"right"}/>
+      <LiveBranch what={"goal"} player1={"José Matis"} player2={"Lola Lilo"} time={28} side={"right"}/>
+      <LiveBranch what={"yellow"} player1={"José Matis"} time={27} side={"right"}/>
+      <LiveBranch what={"red"} player1={"José Matis"} time={16} side={"left"}/>
+      <LiveBranch what={"goal"} player1={"José Matis"} time={8} side={"right"}/>
+      <View style={{marginBottom: 15, justifyContent: 'center', alignItems: 'center',}}>
+        <Image source={assets.kickoff} style={{marginTop: 10}}></Image>
+        <View style={{position: 'absolute', bottom: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
+      </View>
+    </>
     }
   </ScrollView>
   );
@@ -168,40 +135,91 @@ const Stats = () => (
   </ScrollView>
 );
 
-const Details = () => (
-  <SafeAreaView style={{backgroundColor: '#ffffff'}}>
+const TeamCircle = ({teamImg, ...props}) => {
+  return (
+    <View style={[styles1.circle, {...props}]} >
+      <Image style={{flex:1 , width: 55, height: 55, resizeMode: 'contain'}} source={teamImg}></Image>
+    </View>
+  )
+};
+
+
+const styles1 = StyleSheet.create({
+  circle: {
+    position: 'absolute',
+    zIndex: -1,
+  },
+});
+
+const Details = ({data}) => (
+  <ScrollView style={{backgroundColor: '#ffffff'}}>
+  <View style={{height: 150, alignItems: 'center', marginTop: 15}}>
+    <Text style={{fontSize: 20, fontWeight: '800'}}>Head to Head</Text>
+    <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: 15}}>
+      <TeamCircle left={35} teamImg={data.team1.img}/>
+      <View style={{alignItems: 'center'}}><Text style={styles.numbers}>6</Text><Text style={styles.wins}>WINS</Text></View>
+      <View style={styles.verticleLine}></View>
+      <View style={{alignItems: 'center'}}><Text style={styles.numbers}>1</Text><Text style={styles.wins}>DRAW</Text></View>
+      <View style={styles.verticleLine}></View>
+      <View style={{alignItems: 'center'}}><Text style={styles.numbers}>3</Text><Text style={styles.wins}>WINS</Text></View>
+      <TeamCircle right={35} teamImg={data.team2.img}/>
+    </View>
+  </View>
+  <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10, width: '95%', alignSelf: 'center'}}/>
   <View style={styles.div}>
     <Text style={styles.title}>Competition</Text>
-    <Text style={styles.subtitle}>Liga das Nações</Text>
+    <View style={styles.nice}>
+      <Text>{'\u2022'}</Text>
+      <Text style={styles.subtitle}>Liga das Nações</Text>
+    </View>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Kick off</Text>
-    <Text style={styles.subtitle}>Sexta 2 junho 19:45</Text>
+    <View style={styles.nice}>
+      <Text>{'\u2022'}</Text>
+      <Text style={styles.subtitle}>Sexta 2 junho 19:45</Text>
+    </View>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Attendance</Text>
-    <Text style={styles.subtitle}>60 721</Text>
+    <View style={styles.nice}>
+      <Text>{'\u2022'}</Text>
+      <Text style={styles.subtitle}>60 721</Text>
+    </View>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Stadium</Text>
-    <Text style={styles.subtitle}>Benito Villamarín</Text>
+    <View style={styles.nice}>
+      <Text>{'\u2022'}</Text>
+      <Text style={styles.subtitle}>Benito Villamarín</Text>
+    </View>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Referee</Text>
-    <Text style={styles.subtitle}>Michael Oliver</Text>
+    <View style={styles.nice}>
+      <Text>{'\u2022'}</Text>
+      <Text style={styles.subtitle}>Michael Oliver</Text>
+    </View>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Broadcast</Text>
-    <Text style={styles.subtitle}>Sport TV</Text>
-  </View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>SPORT TV1</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>RTP1</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>RTP Play</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>Sky Sports 1</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>ESPN UK</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>beIN Sport 1</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>ESPN 3</Text></View>
+    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>NCBSN</Text></View>
   <View style={{height: 100, backgroundColor: '#ffffff'}}/>
-  </SafeAreaView>
+  </View>
+  </ScrollView>
 );
 
 const styles = StyleSheet.create({
   div: {
-    height: 80, 
-    padding: 10
+    paddingTop: 10,
+    paddingHorizontal: 15,
   },
   title: {
     fontSize: 20, 
@@ -214,6 +232,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   titleL: {
+    fontWeight: '800',
     fontSize: 26, 
     fontWeight: "bold",
     marginRight: 100,
@@ -226,9 +245,29 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 18, 
-    paddingLeft: 40, 
+    paddingLeft: 25, 
     paddingTop: 10
   },
+  nice: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingLeft: 15,
+  },
+  verticleLine: {
+    height: 75,
+    width: 1,
+    backgroundColor: '#909090',
+  },
+  numbers: {
+    fontSize: 30,
+    color: '#353935',
+    paddingHorizontal: 25,
+    fontWeight: 'bold',
+  },
+  wins: {
+    color: '#bababa',
+  }
 });
 
 const renderScene = ({ route }) => {
@@ -240,7 +279,7 @@ const renderScene = ({ route }) => {
     case 'third':
         return <Stats />;
     case 'fourth':
-      return <Details />;  
+      return <Details data={myData} />;  
     default:
       return null;
   }

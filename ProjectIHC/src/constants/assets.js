@@ -57,6 +57,9 @@ import livehead from '../../assets/images/livehead.png'
 import ptcircle from '../../assets/images/ptcircle.png'
 import engcircle from '../../assets/images/engcircle.png'
 import uscircle from '../../assets/images/uscircle.png'
+import endtime from '../../assets/images/endtime.png'
+import kickoff from '../../assets/images/kickoff.png'
+import halftime from '../../assets/images/halftime.png'
 
 export default {
   heartol,
@@ -121,4 +124,7 @@ export default {
   ptcircle,
   engcircle,
   uscircle,
+  endtime,
+  kickoff,
+  halftime
 };

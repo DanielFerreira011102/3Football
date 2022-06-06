@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, Image} from 'react-native';
 import { assets }  from '../constants'
 import { AntDesign } from '@expo/vector-icons'; 
 
-const LiveBranch = ({time, what, player1, player2, side}) => {
+const LiveBranch = ({time, what, player1, player2, side, makeTop}) => {
 
     const SideText = () => {
 
@@ -60,6 +60,7 @@ const LiveBranch = ({time, what, player1, player2, side}) => {
                 </View>
                 {side == "right"? <><Text style={{marginLeft: 8, marginRight: 5, marginTop: -16}}>{time}'</Text><SideText text1={player1} text2={player2} /></> : null}
             </View>
+            {makeTop? <><View style={{position: 'absolute', top: -35, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View></> : null}
             <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
             </View>
         );
@@ -72,6 +73,7 @@ const LiveBranch = ({time, what, player1, player2, side}) => {
             </View>
             {side == "right"? <><Text style={{marginLeft: 8, marginRight: 5, marginTop: -16}}>{time}'</Text><SideText text1={player1} text2={player2} /></> : null}
         </View>
+        {makeTop? <><View style={{position: 'absolute', top: -35, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View></> : null}
         <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
         </View>
     );
