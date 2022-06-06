@@ -167,7 +167,7 @@ const Details = ({data}) => (
   </View>
   <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10, width: '95%', alignSelf: 'center'}}/>
   <View style={styles.div}>
-    <Text style={styles.title}>Competition</Text>
+    <Text style={[styles.title, {paddingTop: 0}]}>Competition</Text>
     <View style={styles.nice}>
       <Text>{'\u2022'}</Text>
       <Text style={styles.subtitle}>Liga das Nações</Text>
@@ -225,6 +225,7 @@ const styles = StyleSheet.create({
     fontSize: 20, 
     fontWeight: "bold",
     paddingLeft: 10,
+    paddingTop: 20
   },
   OverviewInfo: {
     fontSize: 26, 
@@ -246,13 +247,13 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18, 
     paddingLeft: 25, 
-    paddingTop: 10
   },
   nice: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingLeft: 15,
+    paddingTop: 5,
   },
   verticleLine: {
     height: 75,
