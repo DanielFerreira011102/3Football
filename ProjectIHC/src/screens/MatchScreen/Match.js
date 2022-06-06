@@ -1,14 +1,85 @@
 import React, {useState, useRef} from "react";
-import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, } from "react-native";
+import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, Button, Pressable} from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";
 import { FootballField, MatchHeader, PercentageRing, PercentageBlock, LiveBranch } from '../../components';
-import {home, away, COLORS} from '../../constants'
+import {home, away, COLORS} from '../../constants';
+import { Divider } from 'react-native-paper';
+import Modal from 'expo-react-native-modalbox';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import * as Linking from 'expo-linking';
+import { Dimensions } from 'react-native';
 
-const Overview = ({data}) => (
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+const Overview = ({data}) => {
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  const [isOpena, setisOpen] = useState(false);
+
+  async function handleOpen() {
+    if (isOpena) {
+      setisOpen(false) 
+      await sleep(100);
+    }
+    setisOpen(true)
+  }
+
+  return (
   <ScrollView style={{backgroundColor: 'white'}}>
     { data.status == "LIVE"?
-    <><View style={{marginTop: 15, justifyContent: 'center', alignItems: 'center',}}>
+    <>
+    <Modal
+      style={{}}
+      isOpen={isOpena}>
+      <Pressable style={{right: 15, top: 15, position: 'absolute'}} onPress={() => {setisOpen(false)}}><Image source={assets.close} style={{width: 40, height: 40}}></Image></Pressable>
+      <View style={{flexDirection: 'row', left: 10, top: 25, position: 'absolute'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
+      <View style={{marginTop: 60}}>
+        <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10}}/>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
+            <Image source={assets.ptcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
+            <Text style={{marginTop: 10}}>PORTUGAL</Text>
+          </View>
+          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
+            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP 1</Text><Text>{'>'}</Text></Pressable>
+            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/play/direto/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP Play</Text><Text>{'>'}</Text></Pressable>
+            <Pressable onPress={() => Linking.openURL("https://www.sporttv.pt/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>SPORT TV1</Text><Text>{'>'}</Text></Pressable>
+          </View>
+        </View>
+        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
+            <Image source={assets.engcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
+            <Text style={{marginTop: 10}}>ENGLAND</Text>
+          </View>
+          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
+          <Pressable onPress={() => Linking.openURL("https://www.skysports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>Sky Sports 1</Text><Text>{'>'}</Text></Pressable>
+          <Pressable onPress={() => Linking.openURL("https://www.espn.co.uk/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN UK</Text><Text>{'>'}</Text></Pressable>
+          </View>
+        </View>
+        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
+            <Image source={assets.uscircle} style={{width: 130, height: 130, borderColor: '#f2efee', borderWidth: 7, borderRadius: 65}}></Image>
+            <Text style={{marginTop: 10}}>USA</Text>
+          </View>
+          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
+          <Pressable onPress={() => Linking.openURL("https://www.beinsports.com/site-locator")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>beIN Sport 1</Text><Text>{'>'}</Text></Pressable>
+          <Pressable onPress={() => Linking.openURL("https://www.espnplayer.com/packages")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN 3</Text><Text>{'>'}</Text></Pressable>
+          <Pressable onPress={() => Linking.openURL("https://www.nbcsports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>NBCSN</Text><Text>{'>'}</Text></Pressable>
+          </View>
+        </View>
+      </View>
+    </Modal>
+    <Pressable style={{height: 50, backgroundColor: '#36454F', borderBottomEndRadius: 12, borderBottomStartRadius: 12, alignItems: 'center', justifyContent: 'center'}} onPress={handleOpen}>
+      <Text style={{color: 'white', fontWeight: '700'}}>WATCH LIVE ON TV</Text>
+    </Pressable>
+    <View style={{marginTop: 15, justifyContent: 'center', alignItems: 'center',}}>
         <Text style={{backgroundColor: 'white', color: 'red', paddingHorizontal: 5, marginBottom: -10, borderRadius: 3}}>{data.time}'</Text>
         <Image source={assets.livehead} style={{}}></Image>
         <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
@@ -21,9 +92,50 @@ const Overview = ({data}) => (
     <LiveBranch what={"yellow"} player1={"José Matis"} time={27} side={"right"}/>
     <LiveBranch what={"red"} player1={"José Matis"} time={16} side={"left"}/>
     <LiveBranch what={"goal"} player1={"José Matis"} time={8} side={"right"}/></>
-    : null }
+    : <>
+    <View style={{flexDirection: 'row', left: 10, top: 20, position: 'absolute'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
+      <View style={{marginTop: 60}}>
+        <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10}}/>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
+            <Image source={assets.ptcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
+            <Text style={{marginTop: 10}}>PORTUGAL</Text>
+          </View>
+          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
+            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP 1</Text><Text>{'>'}</Text></Pressable>
+            <Pressable onPress={() => Linking.openURL("https://www.rtp.pt/play/direto/rtp1")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>RTP Play</Text><Text>{'>'}</Text></Pressable>
+            <Pressable onPress={() => Linking.openURL("https://www.sporttv.pt/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>SPORT TV1</Text><Text>{'>'}</Text></Pressable>
+          </View>
+        </View>
+        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
+            <Image source={assets.engcircle} style={{width: 130, height: 130, borderColor: '#E6E6FA', borderWidth: 7, borderRadius: 65}}></Image>
+            <Text style={{marginTop: 10}}>ENGLAND</Text>
+          </View>
+          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
+          <Pressable onPress={() => Linking.openURL("https://www.skysports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>Sky Sports 1</Text><Text>{'>'}</Text></Pressable>
+          <Pressable onPress={() => Linking.openURL("https://www.espn.co.uk/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN UK</Text><Text>{'>'}</Text></Pressable>
+          </View>
+        </View>
+        <Divider style={{backgroundColor: 'grey', height: 1, marginVertical: 10}}/>
+        <View style={{flexDirection: 'row', marginBottom: 20}}>
+          <View style={{width: '30%', alignItems: 'center', marginLeft: 20, justifyContent: 'center'}}>
+            <Image source={assets.uscircle} style={{width: 130, height: 130, borderColor: '#f2efee', borderWidth: 7, borderRadius: 65}}></Image>
+            <Text style={{marginTop: 10}}>USA</Text>
+          </View>
+          <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
+          <Pressable onPress={() => Linking.openURL("https://www.beinsports.com/site-locator")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>beIN Sport 1</Text><Text>{'>'}</Text></Pressable>
+          <Pressable onPress={() => Linking.openURL("https://www.espnplayer.com/packages")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>ESPN 3</Text><Text>{'>'}</Text></Pressable>
+          <Pressable onPress={() => Linking.openURL("https://www.nbcsports.com/")} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>NBCSN</Text><Text>{'>'}</Text></Pressable>
+          </View>
+        </View>
+      </View>
+      </> 
+    }
   </ScrollView>
-);
+  );
+}
 
 let myData;
 

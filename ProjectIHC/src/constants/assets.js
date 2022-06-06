@@ -39,7 +39,7 @@ import trofeus from "../../assets/images/trophy.png"
 import matchStats from '../../assets/images/matchStats.jpg';
 
 import calendar from '../../assets/images/calendar_icon.png';
-
+import close from '../../assets/images/x.png';
 import cardred from '../../assets/images/card-red.png';
 import cardyellow from '../../assets/images/card-yellow.png';
 import ffield from '../../assets/images/footballfield.png';
@@ -54,11 +54,16 @@ import assist from '../../assets/images/assist.png';
 import red from '../../assets/images/red.png';
 import livehead from '../../assets/images/livehead.png'
 
+import ptcircle from '../../assets/images/ptcircle.png'
+import engcircle from '../../assets/images/engcircle.png'
+import uscircle from '../../assets/images/uscircle.png'
+
 export default {
   heartol,
   heart,
   left,
   search,
+  close,
 
   logo,
   news1,
@@ -112,4 +117,8 @@ export default {
   assist,
   red,
   livehead,
+
+  ptcircle,
+  engcircle,
+  uscircle,
 };

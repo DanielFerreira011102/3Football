@@ -6,6 +6,7 @@ import { Divider } from 'react-native-paper';
 import { NEWSCard, MATCHCard, HomeHeader, FocusedStatusBar} from "../../components";
 import { FONTS, SIZES, COLORS, NEWSData, MATCHData, assets } from "../../constants";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { AntDesign } from '@expo/vector-icons'; 
 
 const Matches = () => {
   const navigation = useNavigation();
@@ -114,7 +115,7 @@ const Matches = () => {
               keyExtractor={(item) => item.id}
               showsVerticalScrollIndicator={false} /><Divider />
         </View>
-        : <Text style={{alignSelf: 'center', marginTop: '50%', fontSize: 25}}>No matches stored</Text>
+        : <View style={{justifyContent: 'center', alignItems: 'center', height: '100%'}}><AntDesign name="warning" size={100} color='#b1a14e'/><Text style={{fontSize: 25, color: '#b1a14e'}}>No matches stored</Text></View>
       }
       </View>
       <View>
