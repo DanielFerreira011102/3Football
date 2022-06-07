@@ -2,7 +2,7 @@ import React, {useState, useRef} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, Button, Pressable} from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";
-import { FootballField, MatchHeader, PercentageRing, PercentageBlock, LiveBranch, BROADCASTCard } from '../../components';
+import { FootballField, MatchHeader, PercentageRing, PercentageBlock, LiveBranch, BROADCASTCard, BENCHCard } from '../../components';
 import {home, away, COLORS} from '../../constants';
 import { Divider } from 'react-native-paper';
 import Modal from 'expo-react-native-modalbox';
@@ -106,10 +106,49 @@ const Overview = ({data}) => {
 
 let myData;
 
-const Lineup = () => (
-  <View style={{flex: 1, backgroundColor: '#ffffff'}}>
-     <FootballField home={home} away={away} />
-  </View>
+
+const Lineup = ( {data} ) => (
+<ScrollView style={{flex: 1, backgroundColor: '#ffffff'}}>
+    <FootballField home={home} away={away} />
+    <Divider style={{backgroundColor: 'grey', height: 1, marginTop: 8}} />
+    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={{width: 20, height: '100%', backgroundColor: 'rgba(244, 67, 54,0.5)', borderRightColor: 'rgb(244, 67, 54)', borderRightWidth: 1}}></View>
+      <Text style={{fontSize: 18, fontWeight: '700', paddingLeft: 15, marginVertical: 8}}>{data.team2.name.toUpperCase()} BENCH</Text>
+    </View>
+    <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 8}} />
+    <BENCHCard name={"Matheus Nunes"} number={23}/>
+    <BENCHCard name={"Ruben Neves"} number={18}/>
+    <BENCHCard name={"Diogo Dalot"} number={2}/>
+    <BENCHCard name={"Rui Silva"} number={12}/>
+    <BENCHCard name={"Goncalo Guedes"} number={17}/>
+    <BENCHCard name={"William Carvalho"} number={14}/>
+    <BENCHCard name={"Cristiano Ronaldo"} number={7}/>
+    <BENCHCard name={"João Palinha"} number={6}/>
+    <BENCHCard name={"Nuno Mendes"} number={19}/>
+    <BENCHCard name={"Ricardo Horta"} number={21}/>
+    <BENCHCard name={"David Carmo"} number={4}/>
+    <BENCHCard name={"Rui Patricio"} number={1}/>
+    <BENCHCard name={"Daniel Ferreira"} number={0} isLast={true}/>
+    <Divider style={{backgroundColor: 'grey', height: 1}} />
+    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={{width: 20, height: '100%', backgroundColor: 'rgba(3, 169, 244,0.5)', borderRightColor: 'rgb(3, 169, 244)', borderRightWidth: 1}}></View>
+      <Text style={{fontSize: 18, fontWeight: '700', paddingLeft: 15, marginVertical: 8}}>{data.team2.name.toUpperCase()} BENCH</Text>
+    </View>
+    <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 8}} />
+    <BENCHCard name={"Matheus Nunes"} number={23}/>
+    <BENCHCard name={"Ruben Neves"} number={18}/>
+    <BENCHCard name={"Diogo Dalot"} number={2}/>
+    <BENCHCard name={"Rui Silva"} number={12}/>
+    <BENCHCard name={"Goncalo Guedes"} number={17}/>
+    <BENCHCard name={"William Carvalho"} number={14}/>
+    <BENCHCard name={"Cristiano Ronaldo"} number={7}/>
+    <BENCHCard name={"João Palinha"} number={6}/>
+    <BENCHCard name={"Nuno Mendes"} number={19}/>
+    <BENCHCard name={"Ricardo Horta"} number={21}/>
+    <BENCHCard name={"David Carmo"} number={4}/>
+    <BENCHCard name={"Rui Patricio"} number={1}/>
+    <BENCHCard name={"Daniel Ferreira"} number={0} isLast={true}/>
+  </ScrollView>
 );
 
 const Stats = () => (
@@ -276,7 +315,7 @@ const renderScene = ({ route }) => {
     case 'first':
       return <Overview data={myData} />;
     case 'second':
-      return <Lineup />;
+      return <Lineup data={myData} />;
     case 'third':
         return <Stats />;
     case 'fourth':

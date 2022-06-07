@@ -61,6 +61,8 @@ import endtime from '../../assets/images/endtime.png'
 import kickoff from '../../assets/images/kickoff.png'
 import halftime from '../../assets/images/halftime.png'
 
+import ucircle from '../../assets/images/usercircle.png'
+
 export default {
   heartol,
   heart,
@@ -126,5 +128,6 @@ export default {
   uscircle,
   endtime,
   kickoff,
-  halftime
+  halftime,
+  ucircle,
 };
