@@ -23,7 +23,7 @@ const Overview = ({data}) => {
   async function handleOpen() {
     if (isOpena) {
       setisOpen(false) 
-      await sleep(100);
+      await sleep(200);
     }
     setisOpen(true)
   }
@@ -46,7 +46,7 @@ const Overview = ({data}) => {
     <Pressable style={{height: 50, backgroundColor: '#36454F', borderBottomEndRadius: 12, borderBottomStartRadius: 12, alignItems: 'center', justifyContent: 'center'}} onPress={handleOpen}>
       <Text style={{color: 'white', fontWeight: '700'}}>WATCH LIVE ON TV</Text>
     </Pressable>
-    <View style={{marginTop: 15, justifyContent: 'center', alignItems: 'center',}}>
+    <View style={{marginTop: 0, justifyContent: 'center', alignItems: 'center',}}>
         <Text style={{backgroundColor: 'white', color: 'red', paddingHorizontal: 5, marginBottom: -10, borderRadius: 3}}>{data.time}'</Text>
         <Image source={assets.livehead} style={{}}></Image>
         <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
