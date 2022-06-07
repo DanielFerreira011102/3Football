@@ -8,7 +8,7 @@ const BROADCASTCard = ({country, img, channels, isFirst, isLast}) => {
     const OneLiner = ({key, link, tv}) => {
 
         return (
-            <Pressable onPress={() => Linking.openURL({link})} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>{tv}</Text><Text>{'>'}</Text></Pressable>
+            <Pressable  key={key} onPress={() => Linking.openURL({link})} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>{tv}</Text><Text>{'>'}</Text></Pressable>
         )
     
     }

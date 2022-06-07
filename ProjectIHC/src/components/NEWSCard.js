@@ -17,14 +17,14 @@ const NEWSCard = ({ data }) => {
   }
 
   return (
-    <Pressable onPress={() => navigation.navigate("Details", { data })}>
+    <Pressable style={data.top!=undefined? {width: '95%', alignSelf: 'center', elevation: 200, borderRadius: 20, shadowColor: '#00008b'} : {width: '92%', alignSelf: 'center'}} onPress={() => navigation.navigate("Details", { data })}>
     <View
       style={{
         backgroundColor: COLORS.white,
         borderRadius: SIZES.font,
         marginBottom: SIZES.extraLarge,
-        margin: SIZES.base,
         ...SHADOWS.dark,
+        width: '100%'
       }}
     >
       <View

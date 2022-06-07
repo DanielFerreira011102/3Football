@@ -2,6 +2,27 @@ import assets from "./assets";
 
 const NEWSData = [
   {
+    id: "NEWS-00",
+    top: true,
+    name: "World Cup 2022: Fixtures, schedule and kick-off times for Qatar",
+    creator: "Akimbo obwebwe",
+    date: new Date("May 9, 2022 21:12:49"),
+    creator_img: assets.person02,
+    description:
+      `England's World Cup opening game with Iran will take place on Monday November 21; Three Lions' clash with USA will be on Friday November 25; final group game against Scotland, Wales or Ukraine will be on Tuesday November 29; World Cup final is at 6pm (UK time) on December 18
+
+When and where is the 2022 World Cup?
+The 2022 World Cup is taking place in Qatar in the winter months rather than the usual summer ones, due to the heat.
+The tournament kicks off on Monday November 21 at the Al Thumama Stadium when Senegal take on the Netherlands in Group A, with England vs Iran being the second game of the tournament in Al Rayyan. That game is followed by hosts Qatar against Ecuador at the Al Bayt Stadium.
+The tournament kicks off on Monday November 21 at the Al Bayt stadium in Al Khor with a match that will feature the host country against Ecuador.
+
+England will also play on the opening day when they take on Iran. Gareth Southgate's team will then finish Group B with games against the USA on Friday November 25 and versus either Scotland, Wales or Ukraine on Tuesday November 29.
+
+The knock-out stage begins on Saturday December 3.
+The final will be played at the Lusail Stadium in Doha a week before Christmas on Sunday December 18.`,
+      image: assets.news5,
+  },
+  {
     id: "NEWS-01",
     name: "Kylian Mbappé considering renewing with PSG over image rights conditions",
     creator: "Putri Intan",
@@ -56,26 +77,6 @@ The United midfielder's tame effort struck the post and it was a turning point, 
     description:
       `jk lol`,
     image: assets.news4,
-  },
-  {
-    id: "NEWS-05",
-    name: "World Cup 2022: Fixtures, schedule and kick-off times for Qatar",
-    creator: "Akimbo obwebwe",
-    date: new Date("May 9, 2022 21:12:49"),
-    creator_img: assets.person02,
-    description:
-      `England's World Cup opening game with Iran will take place on Monday November 21; Three Lions' clash with USA will be on Friday November 25; final group game against Scotland, Wales or Ukraine will be on Tuesday November 29; World Cup final is at 6pm (UK time) on December 18
-
-When and where is the 2022 World Cup?
-The 2022 World Cup is taking place in Qatar in the winter months rather than the usual summer ones, due to the heat.
-The tournament kicks off on Monday November 21 at the Al Thumama Stadium when Senegal take on the Netherlands in Group A, with England vs Iran being the second game of the tournament in Al Rayyan. That game is followed by hosts Qatar against Ecuador at the Al Bayt Stadium.
-The tournament kicks off on Monday November 21 at the Al Bayt stadium in Al Khor with a match that will feature the host country against Ecuador.
-
-England will also play on the opening day when they take on Iran. Gareth Southgate's team will then finish Group B with games against the USA on Friday November 25 and versus either Scotland, Wales or Ukraine on Tuesday November 29.
-
-The knock-out stage begins on Saturday December 3.
-The final will be played at the Lusail Stadium in Doha a week before Christmas on Sunday December 18.`,
-      image: assets.news5,
   },
   {
     id: "NEWS-06",

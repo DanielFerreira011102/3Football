@@ -1,52 +1,48 @@
 import React, {useState, useRef} from "react";
-import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet, Button, Pressable} from "react-native";
+import { SafeAreaView, Text, View, useWindowDimensions, Image, StyleSheet, Button, Pressable, ScrollView} from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets } from "../../constants";
 import { FootballField, MatchHeader, PercentageRing, PercentageBlock, LiveBranch, BROADCASTCard, BENCHCard } from '../../components';
 import {home, away, COLORS} from '../../constants';
 import { Divider } from 'react-native-paper';
-import Modal from 'expo-react-native-modalbox';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Dimensions } from 'react-native';
-
+import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const Overview = ({data}) => {
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+  const sheetRef = React.useRef(null);
 
-  const [isOpena, setisOpen] = useState(false);
-
-  async function handleOpen() {
-    if (isOpena) {
-      setisOpen(false) 
-      await sleep(200);
-    }
-    setisOpen(true)
-  }
+  const renderContent = () => (
+          <ScrollView style={{zIndex : 10, backgroundColor: 'white', height: 940}}>
+                <Pressable style={{right: 15, top: 15, position: 'absolute'}} onPress={() => {sheetRef.current.snapTo(2)}}><Image source={assets.close} style={{width: 40, height: 40}}></Image></Pressable>
+                <View style={{flexDirection: 'row', left: 10, top: 25, position: 'absolute', height: '100%', backgroundColor: 'white'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
+                <View style={{marginTop: 60}}>
+                  <BROADCASTCard isFirst={true} img={assets.ptcircle} country={"PORTUGAL"} channels={[{link: 'https://www.rtp.pt/rtp1', name: 'RTP1'}, {link: 'https://www.rtp.pt/play/direto/rtp1', name: 'RTP Play'}, {link: 'https://www.sporttv.pt/', name: 'SPORT TV1'}]}/>
+                  <BROADCASTCard img={assets.engcircle} country={"ENGLAND"} channels={[{link: 'https://www.skysports.com/', name: 'Sky Sports 1'}, {link: 'https://www.espn.co.uk/', name: 'ESPN UK'}]}/>
+                  <BROADCASTCard isLast={true} img={assets.uscircle} country={"USA"} channels={[{link: 'https://www.beinsports.com/site-locator', name: 'beIN Sport 1'}, {link: 'https://www.espnplayer.com/packages', name: 'ESPN 3'}, {link: 'https://www.nbcsports.com/', name: 'NBCSN'}]}/>
+                </View>
+          </ScrollView>
+    );
 
   return (
-  <ScrollView style={{backgroundColor: 'white'}}>
+  <ScrollView contentContainerStyle={{}} style={{backgroundColor: 'white', zIndex: 1}}>
     { data.status == "LIVE"?
     <>
-    <Modal
-      style={{}}
-      isOpen={isOpena}>
-      <Pressable style={{right: 15, top: 15, position: 'absolute'}} onPress={() => {setisOpen(false)}}><Image source={assets.close} style={{width: 40, height: 40}}></Image></Pressable>
-      <View style={{flexDirection: 'row', left: 10, top: 25, position: 'absolute'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
-      <View style={{marginTop: 60}}>
-        <BROADCASTCard isFirst={true} img={assets.ptcircle} country={"PORTUGAL"} channels={[{link: 'https://www.rtp.pt/rtp1', name: 'RTP1'}, {link: 'https://www.rtp.pt/play/direto/rtp1', name: 'RTP Play'}, {link: 'https://www.sporttv.pt/', name: 'SPORT TV1'}]}/>
-        <BROADCASTCard img={assets.engcircle} country={"ENGLAND"} channels={[{link: 'https://www.skysports.com/', name: 'Sky Sports 1'}, {link: 'https://www.espn.co.uk/', name: 'ESPN UK'}]}/>
-        <BROADCASTCard isLast={true} img={assets.uscircle} country={"USA"} channels={[{link: 'https://www.beinsports.com/site-locator', name: 'beIN Sport 1'}, {link: 'https://www.espnplayer.com/packages', name: 'ESPN 3'}, {link: 'https://www.nbcsports.com/', name: 'NBCSN'}]}/>
-      </View>
-    </Modal>
-    <Pressable style={{height: 50, backgroundColor: '#36454F', borderBottomEndRadius: 12, borderBottomStartRadius: 12, alignItems: 'center', justifyContent: 'center'}} onPress={handleOpen}>
+    <BottomSheet
+        ref={sheetRef}
+        snapPoints={[0, windowHeight + 55, 0]}
+        borderRadius={10}
+        enabledInnerScrolling={true}
+        renderContent={renderContent}
+    />
+    <Pressable style={{height: 50, backgroundColor: '#36454F', borderBottomEndRadius: 12, borderBottomStartRadius: 12, alignItems: 'center', justifyContent: 'center', zIndex: 2}} onPress={() => sheetRef.current.snapTo(1)}>
       <Text style={{color: 'white', fontWeight: '700'}}>WATCH LIVE ON TV</Text>
     </Pressable>
-    <View style={{marginTop: 0, justifyContent: 'center', alignItems: 'center',}}>
+    <View style={{marginTop: 15, justifyContent: 'center', alignItems: 'center',}}>
         <Text style={{backgroundColor: 'white', color: 'red', paddingHorizontal: 5, marginBottom: -10, borderRadius: 3}}>{data.time}'</Text>
         <Image source={assets.livehead} style={{}}></Image>
         <View style={{position: 'absolute', top: 0, height: 70, width: 2, backgroundColor: '#E5E4E2', alignSelf: 'center', zIndex: -1}}></View>
