@@ -15,7 +15,7 @@ const PlayerHeader = ({ navigation } ) => {
 
     return (
       <View style={{height: 200, backgroundColor: COLORS.primary, width: '100%'}}>
-        <View style={{marginTop: 20, backgroundColor: '#000000'}}>
+        <View style={{marginTop: 20, backgroundColor: '#000000', zIndex: 100}}>
           <CircleButton 
           imgUrl={assets.left}
           left={15}

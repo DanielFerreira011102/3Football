@@ -2,7 +2,7 @@ import React, {useState,} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets, COLORS } from "../../constants";
-import { PlayerHeader } from "../../components";
+import { PlayerHeader, TROPHYCard } from "../../components";
 import { Divider } from 'react-native-paper';
 import { useNavigation } from "@react-navigation/native";
 
@@ -91,10 +91,14 @@ const ProfileRoute = () => {
 
 
 const CareerRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-    <Image source={assets.trofeus} resizeMode={'stretch'} style={{width: '100%', height: '35%', marginLeft: 0}}/>
-    <Text style={{ fontSize: 20, paddingTop: 30, paddingLeft: 10 }}>Atualmente joga na melhor liga do mundo</Text>
-  </View>
+  <ScrollView style={{ backgroundColor: '#ffffff', paddingTop: 20 }}>
+    <TROPHYCard img={assets.wctrophy} name={"WORLD CUP"} number={1}/>
+    <TROPHYCard img={assets.cltrophy} name={"CHAMPIONS LEAGUE"} number={4}/>
+    <TROPHYCard img={assets.bltrophy} name={"BUNDESLIGA"} number={3}/>
+    <TROPHYCard img={assets.lltrophy} name={"LA LIGA"} number={3}/>
+    <TROPHYCard img={assets.gmcup} name={"GERMAN CUP"} number={3}/>
+    <TROPHYCard img={assets.spcup} name={"SPANISH CUP"} number={3}/>
+  </ScrollView>
 );
 
 const renderScene = SceneMap({

@@ -71,6 +71,13 @@ import zidanepos from '../../assets/images/zidanepos.jpg';
 import logout from '../../assets/images/logout.png';
 import help from '../../assets/images/help.png';
 
+import wctrophy from '../../assets/images/wctrophy.png';
+import cltrophy from '../../assets/images/cltrophy.png';
+import bltrophy from '../../assets/images/bltrophy.png';
+import lltrophy from '../../assets/images/lltrophy.png';
+import gmcup from '../../assets/images/gmcup.png';
+import spcup from '../../assets/images/spcup.png';
+
 export default {
   heartol,
   heart,
@@ -146,4 +153,11 @@ export default {
   zidanepos,
   logout,
   help,
+  
+  wctrophy,
+  cltrophy,
+  lltrophy,
+  bltrophy,
+  gmcup,
+  spcup,
 };
