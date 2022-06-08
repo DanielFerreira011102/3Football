@@ -431,6 +431,11 @@ const favourites = [
 
 const settings_text=[
   {
+    id: "S",
+    type: 'Title',
+    title: "Options",
+  },
+  {
     id: "S-01",
     type: 'switch',
     title: "Dark Mode",
@@ -443,34 +448,60 @@ const settings_text=[
     value: false,
   },
   {
+    id: "MORE",
+    type: 'Title',
+    title: "Information",
+  },
+  {
     id: "MORE-01",
     type: 'more',
     title: "Contact Us",
     description:
-    `email dffdfdf@vdvdfdfd
-    email fdklfnsdklfdsklfmf,dfmd
+    `Send email to:
     
-    fdlfmdlfdlfdçlfmdmfldmflçdmfldmf`,
+      suport@3footbal.com
+      geral@3footbal.com
+    
+  or cdontact us in:
+    
+      +351 987654321`,
   },
   {
     id: "MORE-02",
     type: 'more',
     title: "FAQ",
     description:
-    `email dffdfdf@vdvdfdfd
-    email fdklfnsdklfdsklfmf,dfmd
-    
-    fdlfmdlfdlfdçlfmdmfldmflçdmfldmf`,
+    `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
   },
   {
     id: "MORE-03",
     type: 'more',
     title: "Privacy Policy",
     description:
-    `email dffdfdf@vdvdfdfd
-    email fdklfnsdklfdsklfmf,dfmd
+    `
+
+    IHC Time built the 3football app as an Open Source app. This SERVICE is provided by IHC at no cost and is intended for use as is.
     
-    fdlfmdlfdlfdçlfmdmfldmflçdmfldmf`,
+    This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+    
+    If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
+    
+    The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at 3football unless otherwise defined in this Privacy Policy.`,
+  },  
+  {
+    id: "ACCOUNT",
+    type: 'Title',
+    title: "Account",
+  },
+  {
+    id: "ACC-01",
+    type: 'account',
+    title: "Change image",
+  },
+  {
+    id: "ACC-02",
+    type: 'account',
+    title: "Change password",
   },
 ]
 

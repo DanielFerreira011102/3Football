@@ -68,6 +68,9 @@ import realm from '../../assets/images/realm.png';
 import heatmap from '../../assets/images/heatmap.jpg';
 import zidanepos from '../../assets/images/zidanepos.jpg';
 
+import logout from '../../assets/images/logout.png';
+import help from '../../assets/images/help.png';
+
 export default {
   heartol,
   heart,
@@ -141,4 +144,6 @@ export default {
   frcircle,
   heatmap,
   zidanepos,
+  logout,
+  help,
 };

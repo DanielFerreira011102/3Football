@@ -23,7 +23,7 @@ const SETTINGSCard = ({ data }) => {
 
     if(type=='more'){
         return (
-            <View style={{minHeight: 40}}>
+            <View style={{minHeight: 60}}>
                 <Divider style={{height: 1}}/>
                 <Pressable onPress={itemHandler}>
                     <View
@@ -43,11 +43,33 @@ const SETTINGSCard = ({ data }) => {
             </View>
             );
     }
+
+    if(type=='account'){
+        return (
+            <View style={{minHeight: 60}}>
+                <Divider style={{height: 1}}/>
+                    <View
+                        style={{
+                            width: "100%",
+                            padding: SIZES.font,
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                        }}
+                        >
+                        <Text style={{paddingHorizontal: 30}}>{title}</Text>
+
+                        
+                    </View>
+                   
+            </View>
+            );
+    }
     
 
     if(type=='switch'){
         return (
-            <View style={{minHeight: 40}}>
+            <View style={{minHeight: 60}}>
                 <Divider style={{height: 1}}/>
                 
                     <View
@@ -72,6 +94,23 @@ const SETTINGSCard = ({ data }) => {
             </View>
             );
     }
+    if (type == "Title") {
+    return (
+            <View style={{height: 80}}>
+                <Divider style={{height: 1}}/>
+                <View
+                    style={{
+                        width: "100%",
+                        padding: SIZES.font,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                    >
+                    <Text style={{paddingHorizontal: 5, paddingTop: 20, fontSize: 20,color:COLORS.gray}}>{title}</Text>
+                </View>
+            </View>
+    );}
 };
 
 export default SETTINGSCard;
