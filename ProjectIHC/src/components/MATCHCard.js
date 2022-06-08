@@ -42,7 +42,10 @@ const MATCHCard = ({ data, date }) => {
         return (
             <View style={{height: 120}}>
                 <Divider style={{height: 1}}/>
-                <Pressable onPress={() => {navigation.navigate("Match", { data, date })}}>
+                <Pressable onPress={() => {navigation.navigate("Match", {
+                                screen: 'InMatch',
+                                params: {data, date}}
+                                )}}>
                     <View
                         style={{
                             width: "100%",

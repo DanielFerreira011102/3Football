@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Dimensions } from 'react-native';
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
+import { useNavigation } from "@react-navigation/native";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -101,6 +102,7 @@ const Overview = ({data}) => {
 }
 
 let myData;
+let navig;
 
 
 const Lineup = ( {data} ) => (
@@ -203,49 +205,49 @@ const Details = ({data}) => (
   <Divider style={{backgroundColor: 'grey', height: 1, marginBottom: 10, width: '95%', alignSelf: 'center'}}/>
   <View style={styles.div}>
     <Text style={[styles.title, {paddingTop: 0}]}>Competition</Text>
-    <View style={styles.nice}>
+    <Pressable style={styles.nice}>
       <Text>{'\u2022'}</Text>
       <Text style={styles.subtitle}>Liga das Nações</Text>
-    </View>
+    </Pressable>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Kick off</Text>
-    <View style={styles.nice}>
+    <Pressable style={styles.nice}>
       <Text>{'\u2022'}</Text>
       <Text style={styles.subtitle}>Sexta 2 junho 19:45</Text>
-    </View>
+    </Pressable>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Attendance</Text>
-    <View style={styles.nice}>
+    <Pressable style={styles.nice}>
       <Text>{'\u2022'}</Text>
       <Text style={styles.subtitle}>60 721</Text>
-    </View>
+    </Pressable>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Stadium</Text>
-    <View style={styles.nice}>
+    <Pressable style={styles.nice} onPress={() => {navig.navigate("Map")}}>
       <Text>{'\u2022'}</Text>
       <Text style={styles.subtitle}>Benito Villamarín</Text>
-    </View>
+    </Pressable>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Referee</Text>
-    <View style={styles.nice}>
+    <Pressable style={styles.nice}>
       <Text>{'\u2022'}</Text>
       <Text style={styles.subtitle}>Michael Oliver</Text>
-    </View>
+    </Pressable>
   </View>
   <View style={styles.div}>
     <Text style={styles.title}>Broadcast</Text>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>SPORT TV1</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>RTP1</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>RTP Play</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>Sky Sports 1</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>ESPN UK</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>beIN Sport 1</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>ESPN 3</Text></View>
-    <View style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>NCBSN</Text></View>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>SPORT TV1</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>RTP1</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>RTP Play</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>Sky Sports 1</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>ESPN UK</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>beIN Sport 1</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>ESPN 3</Text></Pressable>
+    <Pressable style={styles.nice}><Text>{'\u2022'}</Text><Text style={styles.subtitle}>NCBSN</Text></Pressable>
   <View style={{height: 100, backgroundColor: '#ffffff'}}/>
   </View>
   </ScrollView>
@@ -311,7 +313,7 @@ const renderScene = ({ route }) => {
     case 'first':
       return <Overview data={myData} />;
     case 'second':
-      return <Lineup data={myData} />;
+      return <Lineup data={myData} navigation={navig} />;
     case 'third':
         return <Stats />;
     case 'fourth':
@@ -336,6 +338,7 @@ const Match = ({ route, navigation }) => {
   ]);
 
   myData = data
+  navig = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <MatchHeader navigation={navigation} data={data} date={date}/>

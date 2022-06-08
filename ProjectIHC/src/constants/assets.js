@@ -60,8 +60,13 @@ import uscircle from '../../assets/images/uscircle.png'
 import endtime from '../../assets/images/endtime.png'
 import kickoff from '../../assets/images/kickoff.png'
 import halftime from '../../assets/images/halftime.png'
+import ucircle from '../../assets/images/usercircle.png';
 
-import ucircle from '../../assets/images/usercircle.png'
+import zidaneimg from '../../assets/images/zidaneimg.png';
+import frcircle from '../../assets/images/frcircle.png';
+import realm from '../../assets/images/realm.png';
+import heatmap from '../../assets/images/heatmap.jpg';
+import zidanepos from '../../assets/images/zidanepos.jpg';
 
 export default {
   heartol,
@@ -130,4 +135,10 @@ export default {
   kickoff,
   halftime,
   ucircle,
+
+  zidaneimg,
+  realm,
+  frcircle,
+  heatmap,
+  zidanepos,
 };

@@ -26,6 +26,7 @@ import TeamScreen from '../screens/TeamScreen';
 import ManagerScreen from '../screens/ManagerScreen';
 import MatchScreen from '../screens/MatchScreen';
 import SettDetails from '../screens/SettingsDetails'
+import MapScreen from '../screens/MapScreen/MapScreen';
 
 const Stack = createStackNavigator();
 
@@ -122,6 +123,26 @@ const FavoritesNavigator = () => {
   );
 }
 
+const InsideMatchNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        safeAreaInsets: {
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+        },
+      }}
+      initialRouteName="InMatch"
+    >
+      <Stack.Screen name="InMatch" component={MatchScreen} />
+      <Stack.Screen name="Map" component={MapScreen} />
+    </Stack.Navigator>
+);
+}
+
 const MacthNavigator = () => {
   return (
       <Stack.Navigator
@@ -137,7 +158,7 @@ const MacthNavigator = () => {
         initialRouteName="MatchGroup"
       >
         <Stack.Screen name="MatchGroup" component={MatchesScreen}  />
-        <Stack.Screen name="Match" component={MatchScreen} />
+        <Stack.Screen name="Match" component={InsideMatchNavigator} />
       </Stack.Navigator>
   );
 };

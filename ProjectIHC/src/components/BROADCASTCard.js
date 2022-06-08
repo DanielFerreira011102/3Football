@@ -5,10 +5,10 @@ import * as Linking from 'expo-linking';
 
 const BROADCASTCard = ({country, img, channels, isFirst, isLast}) => {
 
-    const OneLiner = ({key, link, tv}) => {
+    const OneLiner = ({link, tv}) => {
 
         return (
-            <Pressable  key={key} onPress={() => Linking.openURL({link})} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>{tv}</Text><Text>{'>'}</Text></Pressable>
+            <Pressable onPress={() => Linking.openURL({link})} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '50%', borderBottomColor: 'grey', borderBottomWidth: 1}}><Text style={{marginVertical: 10}}>{tv}</Text><Text>{'>'}</Text></Pressable>
         )
     
     }
@@ -22,8 +22,8 @@ const BROADCASTCard = ({country, img, channels, isFirst, isLast}) => {
                     <Text style={{marginTop: 10}}>{country}</Text>
                 </View>
                 <View style={{width: '70%', alignItems: 'flex-start', marginRight: 20, justifyContent: 'center', marginLeft: 60}}>
-                    {channels.map(channel => {
-                        return <OneLiner link={channel.link} tv={channel.name} key={channel.name} />
+                    {channels.map((channel, index) => {
+                        return <OneLiner link={channel.link} tv={channel.name} key={index} />
                     })}
                 </View>
             </View>
