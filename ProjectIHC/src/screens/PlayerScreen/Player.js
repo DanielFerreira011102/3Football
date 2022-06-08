@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState,} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image } from "react-native";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { assets, COLORS } from "../../constants";
 import { PlayerHeader } from "../../components";
 import { Divider } from 'react-native-paper';
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileRoute = () => {
 
@@ -101,7 +102,7 @@ const renderScene = SceneMap({
   second: CareerRoute,
 });
 
-const Player = ({ navigation }) => {
+const Player = ( { navigation }) => {
 
   const layout = useWindowDimensions();
 

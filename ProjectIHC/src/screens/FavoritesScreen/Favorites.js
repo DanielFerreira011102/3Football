@@ -37,7 +37,7 @@ const Favorites = () => {
             </View>
       <View style={{ zIndex: 0}}>
       <FlatList data={favs} horizontal={false}
-                renderItem={({ item }) => <FAVSCard data={item} />}
+                renderItem={({ item }) => <FAVSCard data={item} navigation={navigation} />}
                 keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}/>
       <Divider />

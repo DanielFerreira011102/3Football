@@ -2,10 +2,11 @@ import React, {useState, useRef} from "react";
 import { SafeAreaView, Text, ScrollView, View, useWindowDimensions, Image, StyleSheet,  TouchableHighlight } from "react-native";
 import { assets, COLORS } from "../constants";
 import { CircleButton } from "../components";
+import { useNavigation } from "@react-navigation/native";
 
-const PlayerHeader = ({navigation}) => {
+const PlayerHeader = ({ navigation } ) => {
+
   const [heartImage, setHeartImage] = useState(assets.heartol);
-
   const heartHandler = () => {
     if (heartImage == assets.heart)
       setHeartImage(assets.heartol)
@@ -18,6 +19,7 @@ const PlayerHeader = ({navigation}) => {
           <CircleButton 
           imgUrl={assets.left}
           left={15}
+          zIndex={100}
           handlePress={() => {navigation.goBack()}}/>
           <CircleButton
           imgUrl={heartImage}

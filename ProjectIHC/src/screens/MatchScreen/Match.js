@@ -35,7 +35,7 @@ const Overview = ({data}) => {
     <>
     <BottomSheet
         ref={sheetRef}
-        snapPoints={[0, windowHeight + 55, 0]}
+        snapPoints={[0, windowHeight + 17, 0]}
         borderRadius={10}
         enabledInnerScrolling={true}
         renderContent={renderContent}

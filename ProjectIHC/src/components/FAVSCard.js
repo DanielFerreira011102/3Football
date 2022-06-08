@@ -5,7 +5,7 @@ import { COLORS, SIZES, SHADOWS, assets, NEWSData } from "../constants";
 import { Divider } from 'react-native-paper';
 import {  CircleButton } from "../components";
 
-const SEARCHCard = ({ data }) => {
+const FAVSCard = ({ data }) => {
     
     const id = data.id;
     const type = data.type;
@@ -113,4 +113,4 @@ const SEARCHCard = ({ data }) => {
         );
 };
 
-export default SEARCHCard;
+export default FAVSCard;
