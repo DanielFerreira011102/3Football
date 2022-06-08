@@ -13,6 +13,7 @@ import LiveBranch from "./LiveBranch";
 import BROADCASTCard from "./BROADCASTCard";
 import BENCHCard from "./BENCHCard";
 import TROPHYCard from "./TROPHYCard";
+import EventHeader from './EventHeader'
 import { RectButton, CircleButton } from "./Button";
 import { SubInfo, People, EndDate, NEWSTitle } from "./SubInfo";
 import FocusedStatusBar from "./FocusedStatusBar";
@@ -40,4 +41,5 @@ export {
   BROADCASTCard,
   BENCHCard,
   TROPHYCard,
+  EventHeader,
 };

@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, LogBox} from 'react-native';
 import Navigation from './src/navigation';
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
+LogBox.ignoreAllLogs()
 
 const App = () => {
   const [appIsReady, setAppIsReady] = useState(false);

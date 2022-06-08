@@ -78,6 +78,11 @@ import lltrophy from '../../assets/images/lltrophy.png';
 import gmcup from '../../assets/images/gmcup.png';
 import spcup from '../../assets/images/spcup.png';
 
+import plstats from '../../assets/images/plstats.jpg';
+import plmatches from '../../assets/images/plmatches.jpg';
+import pltable from '../../assets/images/table.jpg';
+import pl2 from '../../assets/images/premier_league2.png';
+
 export default {
   heartol,
   heart,
@@ -160,4 +165,9 @@ export default {
   bltrophy,
   gmcup,
   spcup,
+
+  plstats,
+  plmatches,
+  pltable,
+  pl2,
 };
