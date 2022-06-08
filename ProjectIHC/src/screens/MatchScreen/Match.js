@@ -68,7 +68,10 @@ const Overview = ({data}) => {
     : data.status == "NS"?
     <>
     <View style={{flexDirection: 'row', left: 10, top: 20, position: 'absolute'}}><MaterialCommunityIcons name="broadcast" size={26} color="black" /><Text style={{fontSize: 20, fontWeight: '700', marginLeft: 10}}>BROADCAST CHANNELS</Text></View>
-      <View style={{marginTop: 60}}>
+    <Pressable style={{height: 50, backgroundColor: '#36454F', borderBottomEndRadius: 12, borderBottomStartRadius: 12, alignItems: 'center', justifyContent: 'center', zIndex: 2}} onPress={() => sheetRef.current.snapTo(1)}>
+      <Text style={{color: 'white', fontWeight: '700'}}>BUY TICKETS</Text>
+    </Pressable>
+      <View style={{marginTop: 30}}>
         <BROADCASTCard isFirst={true} img={assets.ptcircle} country={"PORTUGAL"} channels={[{link: 'https://www.rtp.pt/rtp1', name: 'RTP1'}, {link: 'https://www.rtp.pt/play/direto/rtp1', name: 'RTP Play'}, {link: 'https://www.sporttv.pt/', name: 'SPORT TV1'}]}/>
         <BROADCASTCard img={assets.engcircle} country={"ENGLAND"} channels={[{link: 'https://www.skysports.com/', name: 'Sky Sports 1'}, {link: 'https://www.espn.co.uk/', name: 'ESPN UK'}]}/>
         <BROADCASTCard isLast={true} img={assets.uscircle} country={"USA"} channels={[{link: 'https://www.beinsports.com/site-locator', name: 'beIN Sport 1'}, {link: 'https://www.espnplayer.com/packages', name: 'ESPN 3'}, {link: 'https://www.nbcsports.com/', name: 'NBCSN'}]}/>
